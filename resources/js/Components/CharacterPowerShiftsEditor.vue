@@ -3,19 +3,19 @@
         <label class="font-medium w-full text-lg underline-offset-8 mb-4 underline">Power Shifts</label>
         <div class="flex flex-col">
             <label class="text-black flex flex-row gap-1 items-center text-center w-fit px-2 py-1"
-                   v-for="cypherPowerShift in cypherPowerShifts"
+                   v-for="powerShift in character.power_shifts"
             >
-                <input v-model="cypherPowerShift.value" type="number" class="w-5 p-0 text-xs"/>
-                <span v-tippy="cypherPowerShift.description" class="text-sm">{{ cypherPowerShift.name }}</span>
-                <div v-if="cypherPowerShift.has_healing_checkboxes" class="flex gap-1">
-                    <input type="checkbox" />
-                    <input type="checkbox" />
-                    <input type="checkbox" />
-                    <input type="checkbox" />
-                    <input type="checkbox" />
+                <input @change="syncPowerShifts" v-model="powerShift.value" type="number" class="w-5 p-0 text-xs"/>
+                <span v-tippy="powerShift.cypher_power_shift.description" class="text-sm">{{ powerShift.cypher_power_shift.name }}</span>
+                <div v-if="powerShift.cypher_power_shift.has_healing_checkboxes" class="flex gap-1">
+                    <input @change="updateHeartsUsed(powerShift.id,powerShift.heart_1)" v-model="powerShift.heart_1" type="checkbox" />
+                    <input @change="updateHeartsUsed(powerShift.id,powerShift.heart_2)" v-model="powerShift.heart_2" type="checkbox" />
+                    <input @change="updateHeartsUsed(powerShift.id,powerShift.heart_3)" v-model="powerShift.heart_3" type="checkbox" />
+                    <input @change="updateHeartsUsed(powerShift.id,powerShift.heart_4)" v-model="powerShift.heart_4" type="checkbox" />
+                    <input @change="updateHeartsUsed(powerShift.id,powerShift.heart_5)" v-model="powerShift.heart_5" type="checkbox" />
                 </div>
-                <input v-if="cypherPowerShift.allows_additional_text" type="text" class="w-32 p-0 text-xs"/>
-                <span v-if="cypherPowerShift.is_per_round">Per Round</span>
+                <input @change="syncPowerShifts" v-if="powerShift.cypher_power_shift.allows_additional_text" v-model="powerShift.additional_text" type="text" class="w-32 p-0 text-xs"/>
+                <span v-if="powerShift.cypher_power_shift.is_per_round">Per Round</span>
             </label>
 
         </div>
@@ -37,13 +37,73 @@ export default {
         }
     },
     setup(props, {emit}) {
+        props.character.power_shifts.map(powerShift => {
+            if(powerShift.hearts_used >= 1) {
+                powerShift.heart_1 = true;
+            }
+            if(powerShift.hearts_used >= 2) {
+                powerShift.heart_2 = true;
+            }
+            if(powerShift.hearts_used >= 3) {
+                powerShift.heart_3 = true;
+            }
+            if(powerShift.hearts_used >= 4) {
+                powerShift.heart_4 = true;
+            }
+            if(powerShift.hearts_used >= 5) {
+                powerShift.heart_5 = true;
+            }
+
+            return powerShift;
+        });
+        console.log(props.character.power_shifts);
+        return {
+            props
+        }
     },
     methods: {
         syncPowerShifts() {
             axios.put('/characters/' + this.character.id + '/power-shifts', {
-                powerShifts: this.character.powerShifts
+                powerShifts: this.character.power_shifts
             });
+        },
+        updateHeartsUsed(powerShiftId, value) {
+            let powerShift = this.character.power_shifts.find(powerShift => powerShift.id === powerShiftId);
+
+            this.character.power_shifts = this.character.power_shifts.map(powerShift => {
+                if(powerShift.id === powerShiftId) {
+                    if(value) {
+                        powerShift.hearts_used += 1;
+                    } else {
+                        powerShift.hearts_used -= 1;
+                    }
+
+                    if(powerShift.hearts_used >= 1) {
+                        powerShift.heart_1 = true;
+                    }
+                    if(powerShift.hearts_used >= 2) {
+                        powerShift.heart_2 = true;
+                    }
+                    if(powerShift.hearts_used >= 3) {
+                        powerShift.heart_3 = true;
+                    }
+                    if(powerShift.hearts_used >= 4) {
+                        powerShift.heart_4 = true;
+                    }
+                    if(powerShift.hearts_used >= 5) {
+                        powerShift.heart_5 = true;
+                    }
+
+                }
+
+                return powerShift;
+            });
+
+
+
+            this.syncPowerShifts();
         }
+
     },
 };
 </script>

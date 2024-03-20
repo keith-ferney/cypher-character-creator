@@ -9,8 +9,19 @@ return new class extends Migration {
     {
         Schema::create('cypher_descriptors', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
             $table->longText('description');
+
+            $table->integer('might_pool')->default(0);
+            $table->integer('speed_pool')->default(0);
+            $table->integer('intellect_pool')->default(0);
+            $table->integer('additional_pool')->default(0);
+
+            $table->json('skills')->default('[]');
+            $table->json('inabilities')->default('[]');
+            $table->json('equipment')->default('[]');
+
             $table->softDeletes();
             $table->timestamps();
         });

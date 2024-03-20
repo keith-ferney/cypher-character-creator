@@ -9,8 +9,11 @@ return new class extends Migration {
     {
         Schema::create('cypher_flavors', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
             $table->longText('description');
+            $table->json('additional_benefits')->default('[]');
+
             $table->softDeletes();
             $table->timestamps();
         });

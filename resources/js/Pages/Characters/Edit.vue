@@ -42,7 +42,13 @@ export default {
         updateCharacter() {
             axios.put('/characters/' + this.character.id, this.character)
                 .then(response => {
-                    // console.log(response);
+                    // update the character
+                    this.character.skills = response.data.character.skills;
+                    this.character.special_abilities = response.data.character.special_abilities;
+                    this.character.cyphers = response.data.character.cyphers;
+                    this.character.equipment = response.data.character.equipment;
+
+                    console.log(response.data);
                 })
                 .catch(error => {
                         // console.log(error);
@@ -51,12 +57,91 @@ export default {
         }
     },
     watch: {
-        character: {
-            handler: function (newCharacter, oldCharacter) {
-                this.updateCharacter();
-            },
-            deep: true
-        }
+        'character.name': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.cypher_descriptor_id': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.cypher_type_id': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.cypher_focus_id': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.cypher_flavor_id': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.tier': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.effort': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.experience': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.might': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.might_pool': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.might_edge': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.speed': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.speed_pool': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.speed_edge': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.intellect': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.intellect_pool': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.intellect_edge': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.recovery_modifier': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.background': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.notes': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.portrait': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.recovery_action_used': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.recovery_1_hour_used': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.recovery_10_mins_used': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.recovery_10_hours_used': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.impared': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.debilitated': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+        'character.dead': function (newCharacter, oldCharacter) {
+            this.updateCharacter();
+        },
+
     }
 };
 </script>
@@ -179,7 +264,6 @@ export default {
                     </div>
 
 
-
                     <!-- Might/Speed/Intellect -->
                     <div
                         class="order-6 row-span-2 flex bg-white w-full justify-between text-black border-r-8 border-b-8 border-black">
@@ -261,23 +345,33 @@ export default {
                             </div>
                             <div class="grid grid-cols-2 border-t-2 border-t-black">
                                 <div class="flex gap-1 items-center">
-                                    <checkbox :checked="false"/>
-                                    <label class="font-semibold text-xl">1 Action</label>
+                                    <label class="font-semibold text-xl">
+                                        <input v-model="character.recovery_action_used" type="checkbox"
+                                               :checked="false"/>
+                                        1 Action
+                                    </label>
                                 </div>
 
                                 <div class="flex gap-1 items-center">
-                                    <checkbox :checked="false"/>
-                                    <label class="font-semibold text-xl">1 Hour</label>
+                                    <label class="font-semibold text-xl">
+                                        <input v-model="character.recovery_1_hour_used" type="checkbox"
+                                               :checked="false"/>
+                                        1 Hour
+                                    </label>
                                 </div>
 
                                 <div class="flex gap-1 items-center">
-                                    <checkbox :checked="false"/>
-                                    <label class="font-semibold text-xl">10 Mins</label>
+                                    <label class="font-semibold text-xl">
+                                        <input v-model="character.recovery_10_mins_used" type="checkbox" :checked="false"/>
+                                        10 Mins
+                                    </label>
                                 </div>
 
                                 <div class="flex gap-1 items-center">
-                                    <checkbox :checked="false"/>
-                                    <label class="font-semibold text-xl">10 Hours</label>
+                                    <label class="font-semibold text-xl">
+                                        <input v-model="character.recovery_10_hours_used" type="checkbox" :checked="false"/>
+                                        10 Hours
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -286,19 +380,39 @@ export default {
                                 <label class="font-semibold text-xl">Damage Track</label>
                             </div>
                             <div class="grid grid-cols-2 border-t-2 border-t-black">
-                                <div class="flex gap-1 items-center">
-                                    <checkbox :checked="false"/>
-                                    <label class="font-semibold text-xl">Impared</label>
+                                <div class="flex flex-col gap-1 w-36">
+                                    <label class="font-semibold text-xl">
+                                        <input v-model="character.impared" type="checkbox" :checked="false"/>
+                                        Impared
+                                    </label>
+                                    <small class="text-xs text-gray-600">
+                                        +1 Effort per level
+                                        Ignore minor and major effect results on rolls
+                                        Combat roll of 17-20 deals only +1 damage
+                                    </small>
                                 </div>
 
-                                <div class="flex gap-1 items-center">
-                                    <checkbox :checked="false"/>
-                                    <label class="font-semibold text-xl">Debilitated</label>
+                                <div class="flex flex-col gap-1 w-36">
+                                    <label class="font-semibold text-xl">
+                                        <input v-model="character.debilitated" type="checkbox" :checked="false"/>
+                                        Debilitated
+                                    </label>
+                                    <small class="text-xs text-gray-600">
+                                        Can move only an immediate distance
+                                        Cannot move if Speed Pool is 0
+                                    </small>
                                 </div>
 
-                                <div class="flex gap-1 items-center">
-                                    <checkbox :checked="false"/>
-                                    <label class="font-semibold text-xl">Dead</label>
+                                <div></div>
+
+                                <div class="flex flex-col gap-1 w-36">
+                                    <label class="font-semibold text-xl">
+                                        <input v-model="character.dead" type="checkbox" :checked="false"/>
+                                        Dead
+                                    </label>
+                                    <small class="text-xs text-gray-600">
+                                        ...isn’t always dead
+                                    </small>
                                 </div>
 
                             </div>
@@ -307,22 +421,23 @@ export default {
 
 
                     <!-- skills -->
-                    <CharacterSkillsEditor :character="character" />
+                    <CharacterSkillsEditor :character="character"/>
 
 
                     <!-- Advancements -->
-                    <div class="order-9 row-span-2 bg-white w-full flex flex-col border-r-8 border-b-8 border-black px-3 py-2">
+                    <div
+                        class="order-9 row-span-2 bg-white w-full flex flex-col border-r-8 border-b-8 border-black px-3 py-2">
                         <label class="font-medium w-full text-lg underline-offset-8 mb-4 underline">Advancements</label>
                         <div class="flex flex-row">
                             <label v-for="cypherAdvancement in cypherAdvancements"
                                    class="text-black flex flex-col items-center text-center w-fit">
-                                <checkbox :checked="false"/>
+                                <input type="checkbox" :checked="false"/>
                                 <span class="text-sm" v-text="cypherAdvancement.name"></span>
                                 <small class="text-xs" v-html="cypherAdvancement.description">
                                 </small>
                             </label>
                             <label class="text-black flex flex-col items-center text-center w-fit">
-                                <checkbox :checked="false"/>
+                                <input type="checkbox" :checked="false"/>
                                 <span class="text-sm">Other</span>
                                 <small class="text-xs">As specified in the rule book or something</small>
                             </label>
@@ -334,7 +449,7 @@ export default {
                     <CharacterSpecialAbilitiesEditor :character="character" :cypher-abilities="cypherAbilities"/>
 
                     <!-- Attacks -->
-                    <CharacterAttacksEditor :character="character" />
+                    <CharacterAttacksEditor :character="character"/>
 
                     <img src="/ClaimTheSky.png" alt="Character Sheet Background"
                          class="hidden xl:flex lg:order-9 xl:order-11 row-span-2 h-40 self-center place-self-center"
@@ -342,13 +457,13 @@ export default {
 
 
                     <!-- Cyphers -->
-                    <CharacterCyphersEditor :character="character" />
+                    <CharacterCyphersEditor :character="character"/>
 
                     <!-- Power Shifts -->
-                    <CharacterPowerShiftsEditor :character="character" :cypher-power-shifts="cypherPowerShifts" />
+                    <CharacterPowerShiftsEditor :character="character" :cypher-power-shifts="cypherPowerShifts"/>
 
                     <!-- Equipment -->
-                    <CharacterEquipmentEditor :character="character" />
+                    <CharacterEquipmentEditor :character="character"/>
 
 
                 </div>
@@ -358,19 +473,19 @@ export default {
                     class="bg-center bg-cover bg-no-repeat bg-slate-200 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-gray-900 dark:text-black p-6 grid grid-cols-3">
                     <div class="row-span-12 w-full flex flex-col">
                         <textarea v-model="character.background" type="text"
-                               class="h-[98vh] border-0 border-r-8 border-b-8 border-black"/>
+                                  class="h-[98vh] border-0 border-r-8 border-b-8 border-black"/>
                         <label class="bg-black text-white w-fit px-2 font-normal -mt-2 text-lg">Background</label>
                     </div>
 
                     <div class="row-span-12 w-full flex flex-col">
                         <textarea v-model="character.notes" type="text"
-                               class="h-[98vh] border-0 border-r-8 border-b-8 border-black"/>
+                                  class="h-[98vh] border-0 border-r-8 border-b-8 border-black"/>
                         <label class="bg-black text-white w-fit px-2 font-normal -mt-2 text-lg">Notes</label>
                     </div>
 
                     <div class="row-span-12 w-full flex flex-col">
                         <textarea v-model="character.portrait" type="text"
-                               class="h-[98vh] border-0 border-r-8 border-b-8 border-black"/>
+                                  class="h-[98vh] border-0 border-r-8 border-b-8 border-black"/>
                         <label class="bg-black text-white w-fit px-2 font-normal -mt-2 text-lg">Portrait</label>
                     </div>
                 </div>

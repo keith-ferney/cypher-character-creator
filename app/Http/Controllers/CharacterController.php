@@ -56,19 +56,22 @@ class CharacterController extends Controller
 
     public function edit($id)
     {
-        $character = Character::with([
-            'cypherDescriptor',
-            'cypherType',
-            'cypherFocus',
-            'cypherFlavor',
-            'skills',
-            'specialAbilities',
-            'cyphers',
-            'equipment',
-            'attacks',
+        $character = Character::with(array(
+            'cypherDescriptor' => fn($query) => $query->orderBy('id'),
+            'cypherType' => fn($query) => $query->orderBy('id'),
+            'cypherFocus' => fn($query) => $query->orderBy('id'),
+            'cypherFlavor' => fn($query) => $query->orderBy('id'),
+            'skills' => fn($query) => $query->orderBy('id'),
+            'specialAbilities' => fn($query) => $query->orderBy('id'),
+            'cyphers' => fn($query) => $query->orderBy('id'),
+            'equipment' => fn($query) => $query->orderBy('id'),
+            'attacks' => fn($query) => $query->orderBy('id'),
+            'powerShifts' => fn($query) => $query->orderBy('id')->with('cypherPowerShift'),
 //            'cypherAdvancements',
 //            'cypherAbilities',
-        ])->find($id);
+        ))
+            ->find($id);
+
         $cypherDescriptors = CypherDescriptor::all();
         $cypherTypes = CypherType::all();
         $cypherFoci = CypherFocus::all();
@@ -92,7 +95,65 @@ class CharacterController extends Controller
 
     public function update(Request $request, Character $character): JsonResponse
     {
-        $character->update($request->all());
+        $character->fill($request->all());
+        // if the cypher_focus_id, cypher_type_id, cypher_descriptor_id, or cypher_flavor_id are dirty, then we need to update the might_pool, speed_pool, and intellect_pool
+        if ($character->isDirty(['cypher_focus_id', 'cypher_type_id', 'cypher_descriptor_id', 'cypher_flavor_id'])) {
+            $character->might_pool = $character->cypherFocus->might_pool + $character->cypherType->might_pool + $character->cypherDescriptor->might_pool + $character->cypherFlavor->might_pool;
+            $character->speed_pool = $character->cypherFocus->speed_pool + $character->cypherType->speed_pool + $character->cypherDescriptor->speed_pool + $character->cypherFlavor->speed_pool;
+            $character->intellect_pool = $character->cypherFocus->intellect_pool + $character->cypherType->intellect_pool + $character->cypherDescriptor->intellect_pool + $character->cypherFlavor->intellect_pool;
+
+            $character->might_edge = $character->cypherFocus->might_edge + $character->cypherType->might_edge + $character->cypherDescriptor->might_edge + $character->cypherFlavor->might_edge;
+            $character->speed_edge = $character->cypherFocus->speed_edge + $character->cypherType->speed_edge + $character->cypherDescriptor->speed_edge + $character->cypherFlavor->speed_edge;
+            $character->intellect_edge = $character->cypherFocus->intellect_edge + $character->cypherType->intellect_edge + $character->cypherDescriptor->intellect_edge + $character->cypherFlavor->intellect_edge;
+
+            $skills = array_merge($character->cypherFocus->skills, $character->cypherType->skills, $character->cypherDescriptor->skills);
+            $character->skills()->delete();
+
+            foreach ($skills as $skill) {
+                $character->skills()->create([
+                    'name' => $skill,
+                ]);
+            }
+
+            $equipment = array_merge($character->cypherFocus->equipment, $character->cypherType->equipment, $character->cypherDescriptor->equipment);
+            $character->equipment()->delete();
+
+            foreach ($equipment as $item) {
+                $character->equipment()->create([
+                    'name' => $item,
+                ]);
+            }
+
+            $specialAbilities = $character->cypherFocus->abilities
+                ->merge($character->cypherType->abilities)
+                ->merge($character->cypherDescriptor->abilities)
+                ->merge($character->cypherFlavor->abilities);
+            $character->specialAbilities()->delete();
+
+            foreach ($specialAbilities as $ability) {
+                ray($ability);
+                $character->specialAbilities()->create([
+                    'cypher_ability_id' => $ability->id,
+                    'name' => $ability->name,
+                    'description' => $ability->description,
+                ]);
+            }
+
+        }
+
+        $character->save();
+        $character->load([
+            'cypherDescriptor' => fn($query) => $query->orderBy('id'),
+            'cypherType' => fn($query) => $query->orderBy('id'),
+            'cypherFocus' => fn($query) => $query->orderBy('id'),
+            'cypherFlavor' => fn($query) => $query->orderBy('id'),
+            'skills' => fn($query) => $query->orderBy('id'),
+            'specialAbilities' => fn($query) => $query->orderBy('id'),
+            'cyphers' => fn($query) => $query->orderBy('id'),
+            'equipment' => fn($query) => $query->orderBy('id'),
+            'attacks' => fn($query) => $query->orderBy('id'),
+            'powerShifts' => fn($query) => $query->orderBy('id')->with('cypherPowerShift'),
+        ]);
 
         return \response()->json([
             'message' => 'Character updated',

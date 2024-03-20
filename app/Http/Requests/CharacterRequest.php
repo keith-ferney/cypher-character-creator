@@ -34,7 +34,9 @@ class CharacterRequest extends FormRequest
             'recovery_10_mins_used' => ['boolean'],
             'recovery_1_hour_used' => ['boolean'],
             'recovery_10_hours_used' => ['boolean'],
-            'damage_track' => ['required'],
+            'impared' => ['boolean'],
+            'debilitated' => ['boolean'],
+            'dead' => ['boolean'],
             'armor' => ['required', 'integer'],
             'money' => ['required', 'numeric'],
         ];

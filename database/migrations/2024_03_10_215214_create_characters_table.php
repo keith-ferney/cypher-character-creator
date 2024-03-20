@@ -42,7 +42,9 @@ return new class extends Migration {
             $table->boolean('recovery_10_mins_used')->default(false);
             $table->boolean('recovery_1_hour_used')->default(false);
             $table->boolean('recovery_10_hours_used')->default(false);
-            $table->string('damage_track')->nullable();
+            $table->boolean('impared')->default(false);
+            $table->boolean('debilitated')->default(false);
+            $table->boolean('dead')->default(false);
             $table->integer('armor')->nullable();
             $table->float('money')->nullable();
 

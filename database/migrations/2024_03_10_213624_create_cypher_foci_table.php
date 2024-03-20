@@ -9,8 +9,22 @@ return new class extends Migration {
     {
         Schema::create('cypher_foci', function (Blueprint $table) {
             $table->id();
+
             $table->string('name');
             $table->longText('description');
+
+            $table->integer('might_pool')->default(0);
+            $table->integer('speed_pool')->default(0);
+            $table->integer('intellect_pool')->default(0);
+
+            $table->integer('might_edge')->default(0);
+            $table->integer('speed_edge')->default(0);
+            $table->integer('intellect_edge')->default(0);
+
+            $table->json('skills')->default('[]');
+            $table->json('equipment')->default('[]');
+
+
             $table->softDeletes();
             $table->timestamps();
         });

@@ -41,10 +41,36 @@ class Character extends Model
         'recovery_10_mins_used',
         'recovery_1_hour_used',
         'recovery_10_hours_used',
-        'damage_track',
+        'impared',
+        'debilitated',
+        'dead',
         'armor',
         'money',
     ];
+
+    protected $casts = [
+        'impared' => 'boolean',
+        'debilitated' => 'boolean',
+        'dead' => 'boolean',
+        'recovery_action_used' => 'boolean',
+        'recovery_10_mins_used' => 'boolean',
+        'recovery_1_hour_used' => 'boolean',
+        'recovery_10_hours_used' => 'boolean',
+    ];
+
+    // when a character is created, the default power shifts are added
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($character) {
+            foreach (CypherPowerShift::all() as $cypherPowerShift) {
+                $character->powerShifts()->create([
+                    'cypher_power_shift_id' => $cypherPowerShift->id,
+                ]);
+            }
+        });
+    }
 
     public function user(): BelongsTo
     {
@@ -76,19 +102,24 @@ class Character extends Model
         return $this->hasMany(Skill::class);
     }
 
-    public function attacks():HasMany
+    public function attacks(): HasMany
     {
         return $this->hasMany(Attack::class);
     }
 
-    public function specialAbilities():HasMany
+    public function specialAbilities(): HasMany
     {
         return $this->hasMany(SpecialAbility::class);
     }
 
-    public function cyphers():HasMany
+    public function cyphers(): HasMany
     {
         return $this->hasMany(Cypher::class);
+    }
+
+    public function powerShifts(): HasMany
+    {
+        return $this->hasMany(PowerShift::class);
     }
 
     public function equipment(): HasMany

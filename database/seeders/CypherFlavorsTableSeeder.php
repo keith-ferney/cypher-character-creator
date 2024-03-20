@@ -17,6 +17,15 @@ class CypherFlavorsTableSeeder extends Seeder
         $flavors = [
             [
                 'name' => 'Stealth Flavor',
+                'abilities' => [
+                    "Danger Sense",
+                    "Goad",
+                    "Legerdemain",
+                    "Opportunist"
+                ],
+                'additional_benefits' => [
+                    "Choose 2 stealthy skills"
+                ],
                 'description' => '
 Characters with the stealth flavor are good at sneaking around, infiltrating places they don’t belong, and deceiving others. They use these abilities in a variety of ways, including combat. An Explorer with stealth flavor might be a thief, while a Warrior with stealth flavor might be an assassin. An Explorer with stealth flavor in a superhero setting might be a crimefighter who stalks the streets at night.
 
@@ -89,6 +98,16 @@ Twist of Fate
 '],
             [
                 'name' => 'Technology Flavor',
+                'abilities' => [
+                    "Datajack",
+                    "Hacker",
+                    "Machine Interf.",
+                    "Scramble Machine",
+                    "Tinker"
+                ],
+                'additional_benefits' => [
+                    "Choose 2 techy skills"
+                ],
                 'description' => '
 Characters with a flavor of technology typically are from science fiction or at least modern-day settings (although anything is possible). They excel at using, dealing with, and building machines. An Explorer with technology flavor might be a starship pilot, and a Speaker flavored with technology could be a techno-priest.
 
@@ -160,6 +179,15 @@ Master Machine
             ],
             [
                 'name' => 'Magic Flavor',
+                'abilities' => [
+                    "Closed Mind",
+                    "Entang. Force",
+                    "Hedge Magic",
+                    "Magic Training",
+                    "Mental Link",
+                    "Premonition",
+                    "Blessing OTG"
+                ],
                 'description' => '
 You know a little about magic. You might not be a wizard, but you know the basics—how it works, and how to accomplish a few wondrous things. Of course, in your setting, “magic” might actually mean psychic powers, mutant abilities, weird alien tech, or anything else that produces interesting and useful effects.
 
@@ -233,6 +261,11 @@ Word of Death
             ],
             [
                 'name' => 'Combat Flavor',
+                'abilities' => [
+                    "Danger Sense",
+                    "Practiced in armor",
+                    "Practiced w/ med. & light weapons"
+                ],
                 'description' => '
 Combat flavor makes a character more martial. A Speaker with combat flavor in a fantasy setting would be a battle bard. An Explorer with combat flavor in a historical game might be a pirate. An Adept flavored with combat in a science fiction setting could be a veteran of a thousand psychic wars.
 
@@ -287,9 +320,15 @@ Mastery With Defense
 '
             ],
             [
-                'name' => 'Combat Flavor',
+                'name' => 'Skills and Knowledge Flavor',
+                'additional_benefits' => [
+                    "Choose 2 interaction skills",
+                    "Choose 2 investigative skills",
+                    "Choose 2 knowledge skills",
+                    "Choose 2 physical skills",
+                    "Choose 2 travel skills"
+                ],
                 'description' => '
-Skills and Knowledge Flavor
 This flavor is for characters in roles that call for more knowledge and more real-world application of talent. It’s less flashy and dramatic than supernatural powers or the ability to hack apart multiple foes, but sometimes expertise or know-how is the real solution to a problem.
 
 A Warrior flavored with skills and knowledge might be a military engineer. An Explorer flavored with skills and knowledge could be a field scientist. A Speaker with this flavor might be a teacher.
@@ -337,7 +376,18 @@ Skill With Defense'
         ];
 
         foreach ($flavors as $flavor) {
-            CypherFlavor::create($flavor);
+            $abilities = $flavor['abilities'] ?? null;
+            unset($flavor['abilities']);
+
+            $cypherFlavor = CypherFlavor::create($flavor);
+
+            if ($abilities) {
+                $abilities = CypherAbility::whereRaw("name LIKE ANY (array['%".implode("%', '%", $abilities)."%'])")->get();
+                if ($abilities->isNotEmpty()) {
+                    $cypherFlavor->abilities()->syncWithoutDetaching($abilities->pluck('id')->toArray());
+                }
+                unset($abilities);
+            }
         }
 
     }

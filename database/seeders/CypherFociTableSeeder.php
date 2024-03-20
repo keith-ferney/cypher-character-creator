@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\CypherAbility;
 use App\Models\CypherFocus;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CypherFociTableSeeder extends Seeder
 {
@@ -52,7 +53,7 @@ GM Intrusions:
     Creatures of stone sometimes forget their own strength or
     weight. A walking statue can terrify common folk.
 
-'],['name' => 'Absorbs Energy','description' => '
+'], ['name' => 'Absorbs Energy', 'description' => '
  --------------
 
 You can harness kinetic energy and transform it into other kinds of
@@ -84,7 +85,7 @@ GM Intrusions:
     predators feed directly on energy. An unintended item is drained of
     energy.
 
-'],['name' => 'Awakens Dreams','description' => '
+'], ['name' => 'Awakens Dreams', 'description' => '
  --------------
 
 You can pull images from dreams and bring them to life in the waking
@@ -115,7 +116,7 @@ GM Intrusions:
     An unexpected sleepwalking episode puts the character
     into a dangerous situation. A nightmare breaks free of a dream.
 
-'],['name' => 'Battles Robots','description' => '
+'], ['name' => 'Battles Robots', 'description' => '
  --------------
 
 You excel in battling robots, automatons, and machine entities.
@@ -148,7 +149,7 @@ GM Intrusions:
     The robot explodes upon defeat. Other robots come after
     the character for revenge.
 
-'],['name' => 'Bears a Halo of Fire','description' => '
+'], ['name' => 'Bears a Halo of Fire', 'description' => '
  --------------------
 
 You can sheath your body in flames, which protects you and harms your
@@ -176,7 +177,7 @@ GM Intrusions:
     Fire burns flammable material. Fire spreads out of
     control. Primitive creatures fear fire and often attack what they fear.
 
-'],['name' => 'Blazes With Radiance','description' => '
+'], ['name' => 'Blazes With Radiance', 'description' => '
  --------------------
 
 You can create light, sculpt it, bend it away from you, or gather it to
@@ -207,7 +208,7 @@ GM Intrusions:
     Allies are accidentally dazzled or blinded. Bright
     flashes draw guards.
 
-'],['name' => 'Brandishes an Exotic Shield','description' => '
+'], ['name' => 'Brandishes an Exotic Shield', 'description' => '
  ---------------------------
 
 You deploy an amazing shield of pure force that provides protection and
@@ -238,7 +239,7 @@ GM Intrusions:
     The shield is temporarily lost. A foe temporarily ends up
     with the shield.
 
-'],['name' => 'Builds Robots','description' => '
+'], ['name' => 'Builds Robots', 'description' => '
  -------------
 
 Your robotic creations do as they are commanded.
@@ -273,7 +274,7 @@ GM Intrusions:
     The robot is hacked, gains a mind of its own, or
     unexpectedly detonates.
 
-'],['name' => 'Calculates the Incalculable','description' => '
+'], ['name' => 'Calculates the Incalculable', 'description' => '
  ---------------------------
 
 Awesome mathematical ability allows you to model the world in real time,
@@ -307,7 +308,7 @@ GM Intrusions:
     Too many predicted results threaten to overwhelm and stun
     the character. A result points to imminent disaster.
 
-'],['name' => 'Channels Divine Blessings','description' => '
+'], ['name' => 'Channels Divine Blessings', 'description' => '
  -------------------------
 
 A devout follower of a divine being, you channel some of your deity’s
@@ -335,7 +336,7 @@ GM Intrusions:
     A demon investigates divine magic use. A rival cult has
     issues with the character’s teachings.
 
-'],['name' => 'Commands Mental Powers','description' => '
+'], ['name' => 'Commands Mental Powers', 'description' => '
  ----------------------
 
 You can pull images from dreams and bring them to life in the waking
@@ -363,7 +364,7 @@ GM Intrusions:
     Something glimpsed in the target’s mind is horrifying. A
     feedback loop allows the target to read the character’s mind.
 
-'],['name' => 'Conducts Weird Science','description' => '
+'], ['name' => 'Conducts Weird Science', 'description' => '
  ----------------------
 
 Your preternatural insight and ability make you a scientist capable of
@@ -402,7 +403,7 @@ GM Intrusions:
     When a device created or modified by weird science is depleted, it
     detonates.
 
-'],['name' => 'Consorts With the Dead','description' => '
+'], ['name' => 'Consorts With the Dead', 'description' => '
  ----------------------
 
 The dead answer your questions, and their reanimated corpses serve you.
@@ -429,7 +430,7 @@ GM Intrusions:
     The character’s necromantic reputation precedes them. A
     corpse seeks revenge for being reanimated.
 
-'],['name' => 'Controls Beasts','description' => '
+'], ['name' => 'Controls Beasts', 'description' => '
  ---------------
 
 Your ability to communicate and lead beasts is uncanny.
@@ -462,7 +463,7 @@ GM Intrusions:
     The community is reluctant to welcome dangerous animals.
     Out-of-control beasts become a real hazard.
 
-'],['name' => 'Controls Gravity','description' => '
+'], ['name' => 'Controls Gravity', 'description' => '
  ----------------
 
 You can sway the attraction of gravity itself.
@@ -491,7 +492,7 @@ GM Intrusions:
     Onlookers react with unreasoning fear. A weird
     interaction sends an ally or object careening into the sky.
 
-'],['name' => 'Crafts Illusions','description' => '
+'], ['name' => 'Crafts Illusions', 'description' => '
  ----------------
 
 You fashion images from light that are so perfect they seem real.
@@ -518,7 +519,7 @@ GM Intrusions:
     The illusion isn’t believable. The illusion is pierced at
     just the wrong moment.
 
-'],['name' => 'Crafts Unique Objects','description' => '
+'], ['name' => 'Crafts Unique Objects', 'description' => '
  ---------------------
 
 You’re an inventor of strange and useful objects.
@@ -556,7 +557,7 @@ objects. If this isn’t the case, this ability should probably be
 replaced with something akin to :ref:`Weird Science Breakthrough <Weird Science Breakthrough>` from the
 :ref:`Conducts Weird Science <focus:Conducts Weird Science>` focus.)
 
-'],['name' => 'Dances With Dark Matter','description' => '
+'], ['name' => 'Dances With Dark Matter', 'description' => '
  -----------------------
 
 You can manipulate shadow and “dark” matter.
@@ -583,7 +584,7 @@ GM Intrusions:
     Dark matter skulks away as if possessed by a mind of its
     own.
 
-'],['name' => 'Defends the Gate','description' => '
+'], ['name' => 'Defends the Gate', 'description' => '
  ----------------
 
 Everyone wants you on their side when it comes to a fight because
@@ -614,7 +615,7 @@ GM Intrusions:
     A strategically important structure collapses. The enemy
     attacks from an unexpected direction.
 
-'],['name' => 'Defends the Weak','description' => '
+'], ['name' => 'Defends the Weak', 'description' => '
  ----------------
 
 You stand up for the helpless, the weak, and the unprotected.
@@ -647,7 +648,7 @@ GM Intrusions:
     A character focused on protecting others may periodically
     leave themselves vulnerable to attacks.
 
-'],['name' => 'Descends From Nobility','description' => '
+'], ['name' => 'Descends From Nobility', 'description' => '
  ----------------------
 
 A descendent of wealth and power, you carry a noble title and the
@@ -678,7 +679,7 @@ GM Intrusions:
     long-lost sibling seeks to disinherit rivals. An assassin finds the
     character.
 
-'],['name' => 'Doesn’t Do Much','description' => '
+'], ['name' => 'Doesn’t Do Much', 'description' => '
  ---------------
 
 You’re a slacker, but you know a little about a lot of things.
@@ -707,7 +708,7 @@ GM Intrusions:
     New situations are confounding and stressful. Past
     actions (or inactions) come back to haunt the character.
 
-'],['name' => 'Drives Like a Maniac','description' => '
+'], ['name' => 'Drives Like a Maniac', 'description' => '
  --------------------
 
 Whether balancing on two wheels, jumping another vehicle, or driving
@@ -748,7 +749,7 @@ GM Intrusions:
     is out. The windshield shatters. Someone unexpectedly runs in front of
     the vehicle.
 
-'],['name' => 'Emerged From the Obelisk','description' => '
+'], ['name' => 'Emerged From the Obelisk', 'description' => '
  ------------------------
 
 Your body, hard as crystal, gives you a suite of unique abilities,
@@ -776,7 +777,7 @@ GM Intrusions:
     Cyphers and artifacts react unexpectedly in the
     character’s hands.
 
-'],['name' => 'Employs Magnetism','description' => '
+'], ['name' => 'Employs Magnetism', 'description' => '
  -----------------
 
 You command metal and the power of magnetism.
@@ -804,7 +805,7 @@ GM Intrusions:
     concentration might cause something to slip or drop at just the wrong
     time.
 
-'],['name' => 'Entertains','description' => '
+'], ['name' => 'Entertains', 'description' => '
  ----------
 
 You perform, mostly for the benefit of others.
@@ -832,7 +833,7 @@ GM Intrusions:
     break. Paints dry in their pots. The words to a poem or song are
     forgotten.
 
-'],['name' => 'Exists in Two Places at Once','description' => '
+'], ['name' => 'Exists in Two Places at Once', 'description' => '
  ----------------------------
 
 You exist in two places at once.
@@ -859,7 +860,7 @@ GM Intrusions:
     Perceiving the world from two different places disorients
     the character, causing momentary vertigo, nausea, or confusion.
 
-'],['name' => 'Exists Partially Out of Phase','description' => '
+'], ['name' => 'Exists Partially Out of Phase', 'description' => '
  -----------------------------
 
 A bit translucent, you’re slightly out of phase and can move through
@@ -887,7 +888,7 @@ GM Intrusions:
     The character is sent phasing into an unexpected
     dimension. The character becomes lost in a large solid.
 
-'],['name' => 'Explores Dark Places','description' => '
+'], ['name' => 'Explores Dark Places', 'description' => '
  --------------------
 
 You’re the archetypal treasure hunter, scavenger, and finder of lost
@@ -918,7 +919,7 @@ GM Intrusions:
     Possessions fall out of pockets or bags in the dark; maps
     get lost; information gained fails to include an important detail.
 
-'],['name' => 'Fights Dirty','description' => '
+'], ['name' => 'Fights Dirty', 'description' => '
  ------------
 
 You’ll do anything to win a fight: bite, scratch, kick, trick, and
@@ -955,7 +956,7 @@ GM Intrusions:
     People look poorly upon those who cheat or fight without
     honor. Sometimes a dirty trick backfires.
 
-'],['name' => 'Fights With Panache','description' => '
+'], ['name' => 'Fights With Panache', 'description' => '
  -------------------
 
 You’re a swashbuckling daredevil who fights with flamboyant style that’s
@@ -986,7 +987,7 @@ GM Intrusions:
     The display comes off looking silly, clumsy, or
     unattractive.
 
-'],['name' => 'Flies Faster Than a Bullet','description' => '
+'], ['name' => 'Flies Faster Than a Bullet', 'description' => '
  --------------------------
 
 You can fly, and you’re superstrong, hard to hurt, and fast too. Is
@@ -1017,7 +1018,7 @@ GM Intrusions:
     A nemesis finds the character. A strange material is
     found to nullify the character’s abilities.
 
-'],['name' => 'Focuses Mind Over Matter','description' => '
+'], ['name' => 'Focuses Mind Over Matter', 'description' => '
  ------------------------
 
 You can telekinetically move objects with your mind without physically
@@ -1045,7 +1046,7 @@ GM Intrusions:
     One mental slip, and moving objects drop or fragile
     objects break. Sometimes the wrong item moves, falls, or breaks.
 
-'],['name' => 'Fuses Flesh and Steel','description' => '
+'], ['name' => 'Fuses Flesh and Steel', 'description' => '
  ---------------------
 
 Your body is part machine.
@@ -1072,7 +1073,7 @@ GM Intrusions:
     People in most societies are afraid of someone who is
     revealed to have mechanical parts.
 
-'],['name' => 'Fuses Mind and Machine','description' => '
+'], ['name' => 'Fuses Mind and Machine', 'description' => '
  ----------------------
 
 Electronic aids implanted in your brain make you a mental powerhouse.
@@ -1106,7 +1107,7 @@ GM Intrusions:
     intelligences can take control of lesser thinking machines. Some people
     don’t trust a person who isn’t fully organic.
 
-'],['name' => 'Grows to Towering Heights','description' => '
+'], ['name' => 'Grows to Towering Heights', 'description' => '
  -------------------------
 
 For brief periods, you can grow larger and, with enough experience, to
@@ -1141,7 +1142,7 @@ GM Intrusions:
     ceilings or hanging lights. An enlarged character breaks through the
     floor.
 
-'],['name' => 'Helps Their Friends','description' => '
+'], ['name' => 'Helps Their Friends', 'description' => '
  -------------------
 
 You love your friends and help them out of any difficulty, no matter
@@ -1177,7 +1178,7 @@ GM Intrusions:
     Others sometimes have ulterior motives. The law takes an
     undue interest. Even when everything goes right, repercussions follow.
 
-'],['name' => 'Howls at the Moon','description' => '
+'], ['name' => 'Howls at the Moon', 'description' => '
  -----------------
 
 For brief periods, you become a fearsome and powerful creature with
@@ -1205,7 +1206,7 @@ GM Intrusions:
     The change happens in an uncontrolled fashion. People are
     terrified of monsters.
 
-'],['name' => 'Hunts','description' => '
+'], ['name' => 'Hunts', 'description' => '
  -----
 
 You are a stalking hunter who excels at bringing down your selected
@@ -1239,7 +1240,7 @@ GM Intrusions:
     The quarry notices the character. The quarry isn’t as
     vulnerable as it seemed.
 
-'],['name' => 'Infiltrates','description' => '
+'], ['name' => 'Infiltrates', 'description' => '
  -----------
 
 Subtlety, guile, and stealth allow you to get in where others can’t.
@@ -1272,7 +1273,7 @@ GM Intrusions:
     Spies are treated harshly when caught. Allies disavow
     infiltrators who get caught. Some secrets are better left unknown.
 
-'],['name' => 'Interprets the Law','description' => '
+'], ['name' => 'Interprets the Law', 'description' => '
  ------------------
 
 You excel at winning others over to your views.
@@ -1302,7 +1303,7 @@ GM Intrusions:
     Onlookers react badly to a know-it-all. A distraction or
     interruption throws the character’s argument off the rails.
 
-'],['name' => 'Is Idolized by Millions','description' => '
+'], ['name' => 'Is Idolized by Millions', 'description' => '
  -----------------------
 
 You’re a celebrity and most people adore you.
@@ -1336,7 +1337,7 @@ GM Intrusions:
     your entourage betrays you. Your show, tour, contract, or other event is
     canceled. The media posts photos of you in an embarrassing situation.
 
-'],['name' => 'Is Licensed to Carry', 'description' => '
+'], ['name' => 'Is Licensed to Carry', 'description' => '
  --------------------
 
 You carry a gun and you know how to use it in a fight.
@@ -1370,7 +1371,7 @@ GM Intrusions:
     Misfire or jam! The attack fails and the action is lost,
     plus an additional action is needed to fix the problem.
 
-'],['name' => 'Is Wanted by the Law', 'description' => '
+'], ['name' => 'Is Wanted by the Law', 'description' => '
  --------------------
 
 “WANTED, DEAD OR ALIVE” posters (or their equivalent) have appeared
@@ -1403,7 +1404,7 @@ GM Intrusions:
     Most people do not take well to discovering a wanted
     outlaw in their midst.
 
-'],['name' => 'Keeps a Magic Ally','description' => '
+'], ['name' => 'Keeps a Magic Ally', 'description' => '
  ------------------
 
 An allied magic creature bound to an object (such as a minor djinn in a
@@ -1436,7 +1437,7 @@ GM Intrusions:
     as asked. The creature says it’s leaving unless a task is performed for
     it.
 
-'],['name' => 'Leads' ,'description'=> '
+'], ['name' => 'Leads', 'description' => '
  -----
 
 Your natural leadership capability allows you to command others,
@@ -1470,7 +1471,7 @@ GM Intrusions:
     Followers fail, betray, lie, become corrupted, get
     kidnapped, or die.
 
-'],['name' => 'Learns Quickly' ,'description'=> '
+'], ['name' => 'Learns Quickly', 'description' => '
  --------------
 
 You deal with bad situations as they arise, learning new lessons each
@@ -1506,7 +1507,7 @@ Tier 6:
 GM Intrusions:
     Accidents and mistakes are great teachers.
 
-'],['name' => 'Lives in the Wilderness' ,'description'=> '
+'], ['name' => 'Lives in the Wilderness', 'description' => '
  -----------------------
 
 You can survive in badlands where others perish.
@@ -1540,7 +1541,7 @@ GM Intrusions:
     look (and smell) like they live in the wilds, as if they were ignorant
     or barbaric.
 
-'],['name' => 'Looks for Trouble' ,'description'=> '
+'], ['name' => 'Looks for Trouble', 'description' => '
  -----------------
 
 You’re a scrapper and love a good fight.
@@ -1574,7 +1575,7 @@ GM Intrusions:
     Brawlers trip and fall. Even the battlefield can work against you with
     things falling or collapsing.
 
-'],['name' => 'Loves the Void' ,'description'=> '
+'], ['name' => 'Loves the Void', 'description' => '
  --------------
 
 When it’s just you, your spacesuit, and the panorama of stars wheeling
@@ -1613,7 +1614,7 @@ GM Intrusions:
     Spacesuits develop glitches. Air refill cartridges
     sometimes misreport capacity. Micrometeorites are common in space.
 
-'],['name' => 'Masters Defense' ,'description'=> '
+'], ['name' => 'Masters Defense', 'description' => '
  ---------------
 
 You use protective equipment and practiced techniques to avoid becoming
@@ -1647,7 +1648,7 @@ GM Intrusions:
     Shields break when hit, as do weapons used to parry.
     Armor straps break.
 
-'],['name' => 'Masters Spells' ,'description'=> '
+'], ['name' => 'Masters Spells', 'description' => '
  --------------
 
 By specializing in spellcasting and keeping a spellbook, you can quickly
@@ -1676,7 +1677,7 @@ GM Intrusions:
     The spell goes wrong. The summoned creature turns on the
     caster. A rival spellcaster is drawn to the magic use.
 
-'],['name' => 'Masters the Swarm' ,'description'=> '
+'], ['name' => 'Masters the Swarm', 'description' => '
  -----------------
 
 Insects. Rats. Bats. Even birds. You master one type of small creature
@@ -1704,7 +1705,7 @@ GM Intrusions:
     A command is misunderstood. Control is erratic or is
     lost. Bites and stings are not uncommon for masters of the swarm.
 
-'],['name' => 'Masters Weaponry' ,'description'=> '
+'], ['name' => 'Masters Weaponry', 'description' => '
  ----------------
 
 You are a master user of a particular type of weapon, be it a sword,
@@ -1738,7 +1739,7 @@ GM Intrusions:
     Weapons break. Weapons can be stolen. Weapons can be
     dropped or forced out of your hand.
 
-'],['name' => 'Metes Out Justice' ,'description'=> '
+'], ['name' => 'Metes Out Justice', 'description' => '
  -----------------
 
 You right wrongs, protect the innocent, and punish the guilty.
@@ -1775,7 +1776,7 @@ GM Intrusions:
     the presumption of a self-appointed judge. Passing judgment makes
     enemies.
 
-'],['name' => 'Moves Like a Cat','description' => '
+'], ['name' => 'Moves Like a Cat', 'description' => '
  ----------------
 
 Lithe, flexible, and graceful, you move quickly and smoothly, and never
@@ -1813,7 +1814,7 @@ GM Intrusions:
     it looks. An escape move is so overzealous that it sends the character
     right into harm’s way.
 
-'],['name' => 'Moves Like the Wind','description' => '
+'], ['name' => 'Moves Like the Wind', 'description' => '
  -------------------
 
 You can move so fast that you become a blur.
@@ -1844,7 +1845,7 @@ GM Intrusions:
     movement of other creatures can be unpredictable, and the character
     might run into them.
 
-'],['name' => 'Murders' ,'description'=> '
+'], ['name' => 'Murders', 'description' => '
  -------
 
 You’re an assassin, whether by trade, by inclination, or because it was
@@ -1879,7 +1880,7 @@ Tier 6:
 GM Intrusions:
     Most people do not react well to a professional killer.
 
-'],['name' => 'Needs No Weapon' ,'description'=> '
+'], ['name' => 'Needs No Weapon', 'description' => '
  ---------------
 
 Powerful punches, kicks, elbows, knees, and full body movements are all
@@ -1914,7 +1915,7 @@ GM Intrusions:
     Opponents with weapons have greater reach. Complicated martial arts
     moves can knock you off balance.
 
-'],['name' => 'Never Says Die' ,'description'=> '
+'], ['name' => 'Never Says Die', 'description' => '
  --------------
 
 You never quit, can shrug off a beating, and always come back for more.
@@ -1943,7 +1944,7 @@ Tier 6:
 GM Intrusions:
     Sometimes, it’s equipment or weapons that give out.
 
-'],['name' => 'Operates Undercover' ,'description'=> '
+'], ['name' => 'Operates Undercover', 'description' => '
  -------------------
 
 Under the guise of someone else, you seek to find answers the powerful
@@ -1974,7 +1975,7 @@ GM Intrusions:
     Bad luck can ruin the best plans. Disguises fail. Allies
     are revealed to be agents, too.
 
-'],['name' => 'Performs Feats of Strength' ,'description'=> '
+'], ['name' => 'Performs Feats of Strength', 'description' => '
  --------------------------
 
 A muscled prodigy, you can haul incredible weight, hurl your body
@@ -2005,7 +2006,7 @@ GM Intrusions:
     It’s easy to break delicate things or hurt someone
     accidentally.
 
-'],['name' => 'Pilots Starcraft' ,'description'=> '
+'], ['name' => 'Pilots Starcraft', 'description' => '
  ----------------
 
 You’re a crack starship pilot.
@@ -2047,7 +2048,7 @@ GM Intrusions:
     Starcraft get lost, break down, and are attacked in
     space. An alien stowaway is found.
 
-'],['name' => 'Plays Too Many Games' ,'description'=> '
+'], ['name' => 'Plays Too Many Games', 'description' => '
  --------------------
 
 Lessons, reflexes, and strategies you’ve learned by playing too many
@@ -2086,7 +2087,7 @@ GM Intrusions:
     Sometimes people react negatively to someone who has lived most of their
     life in imaginary game worlds.
 
-'],['name' => 'Rages' ,'description'=> '
+'], ['name' => 'Rages', 'description' => '
  -----
 
 When you go berserk, everyone fears you.
@@ -2116,7 +2117,7 @@ GM Intrusions:
     It’s easy for a berserker to lose control and attack
     friend as well as foe.
 
-'],['name' => 'Rides the Lightning','description' => '
+'], ['name' => 'Rides the Lightning', 'description' => '
  -------------------
 
 You create and discharge electrical power.
@@ -2146,7 +2147,7 @@ GM Intrusions:
     Targets other than those intended are shocked. Objects
     explode.
 
-'],['name' => 'Runs Away' ,'description'=> '
+'], ['name' => 'Runs Away', 'description' => '
  ---------
 
 Your first instinct is to run from danger, and you’ve gotten very good
@@ -2180,7 +2181,7 @@ GM Intrusions:
     Quick movements sometimes lead to dropped items, slipping
     on uneven ground, or going the wrong way by accident.
 
-'],['name' => 'Sailed Beneath the Jolly Roger' ,'description'=> '
+'], ['name' => 'Sailed Beneath the Jolly Roger', 'description' => '
  ------------------------------
 
 You sailed with a crew of dread pirates, but you’ve decided to end your
@@ -2219,7 +2220,7 @@ GM Intrusions:
     storms and disease. Other pirates sometimes get ahead through betrayal.
     A pirate tracks down former sailing mates to find hidden treasure.
 
-'],['name' => 'Scavenges' ,'description'=> '
+'], ['name' => 'Scavenges', 'description' => '
  ---------
 
 When not running and hiding, you sift the ruins of civilization for
@@ -2251,7 +2252,7 @@ GM Intrusions:
     claiming that the useful item or piece of junk scavenged belongs to
     them. A recycled cypher explodes.
 
-'],['name' => 'Sees Beyond' ,'description'=> '
+'], ['name' => 'Sees Beyond', 'description' => '
  -----------
 
 You have a psychic sense that allows you to see what others cannot.
@@ -2277,7 +2278,7 @@ Tier 6:
 GM Intrusions:
     Some secrets are too terrible to know.
 
-'],['name' => 'Separates Mind From Body' ,'description'=> '
+'], ['name' => 'Separates Mind From Body', 'description' => '
  ------------------------
 
 You can project your mind out of your body to see faraway places and
@@ -2308,7 +2309,7 @@ GM Intrusions:
     Reuniting mind and body can sometimes be disorienting and
     require a character to spend a few moments to get their bearings.
 
-'],['name' => 'Shepherds the Community' ,'description'=> '
+'], ['name' => 'Shepherds the Community', 'description' => '
  -----------------------
 
 You keep the place where you live safe from all danger.
@@ -2338,7 +2339,7 @@ GM Intrusions:
     People in the community misunderstand the character’s
     motives. Rivals try to oust the character.
 
-'],['name' => 'Shepherds Spirits' ,'description'=> '
+'], ['name' => 'Shepherds Spirits', 'description' => '
  -----------------
 
 Wandering souls, nature spirits, and elemental beings aid and support
@@ -2369,7 +2370,7 @@ GM Intrusions:
     Some people don’t trust those who deal with spirits. The
     dead sometimes don’t want shepherding.
 
-'],['name' => 'Shreds the Walls of the World' ,'description'=> '
+'], ['name' => 'Shreds the Walls of the World', 'description' => '
  -----------------------------
 
 Speed plus phasing gives you a unique ability to evade danger and
@@ -2400,7 +2401,7 @@ GM Intrusions:
     Moving so quickly while sprinting sometimes leads to
     stumbles on unexpected, exotic obstacles.
 
-'],['name' => 'Siphons Power' ,'description'=> '
+'], ['name' => 'Siphons Power', 'description' => '
  -------------
 
 You suck power out of machines and creatures alike in order to empower
@@ -2432,7 +2433,7 @@ GM Intrusions:
     unwanted—compulsions, afflictions, or alien thoughts. Siphoned power can
     overload the character, causing feedback.
 
-'],['name' => 'Slays Monsters' ,'description'=> '
+'], ['name' => 'Slays Monsters', 'description' => '
  --------------
 
 You kill monsters.
@@ -2473,7 +2474,7 @@ GM Intrusions:
     The monster laid a trap or set an ambush. The monster has
     previously undisclosed abilities. The monster’s mother vows revenge.
 
-'],['name' => 'Solves Mysteries' ,'description'=> '
+'], ['name' => 'Solves Mysteries', 'description' => '
  ----------------
 
 You’re a master of deduction, using evidence to find the answer.
@@ -2503,7 +2504,7 @@ GM Intrusions:
     Evidence disappears, red herrings confuse, and witnesses
     lie. Initial research can be faulty.
 
-'],['name' => 'Speaks for the Land' ,'description'=> '
+'], ['name' => 'Speaks for the Land', 'description' => '
  -------------------
 
 Your spiritual connection to nature and the environment grants you
@@ -2536,7 +2537,7 @@ GM Intrusions:
     carcasses to rot. A tree falls in the forest, one of the last elder
     trees.
 
-'],['name' => 'Stands Like a Bastion' ,'description'=> '
+'], ['name' => 'Stands Like a Bastion', 'description' => '
  ---------------------
 
 Your armor, along with your size, strength, incredible training, or
@@ -2576,7 +2577,7 @@ Tier 6:
 GM Intrusions:
     Armor is damaged. Small foes conspire in ingenious ways.
 
-'],['name' => 'Talks to Machines' ,'description'=> '
+'], ['name' => 'Talks to Machines', 'description' => '
  -----------------
 
 You use your organic brain like a computer, interfacing “wirelessly”
@@ -2613,7 +2614,7 @@ Tier 6:
 GM Intrusions:
     The machine malfunctions or acts unpredictably.
 
-'],['name' => 'Throws With Deadly Accuracy' ,'description'=> '
+'], ['name' => 'Throws With Deadly Accuracy', 'description' => '
  ---------------------------
 
 Everything that leaves your hand goes exactly where you’d like it to go
@@ -2644,7 +2645,7 @@ GM Intrusions:
     Missed attacks strike the wrong target. Ricochets can be
     dangerous. Improvised weapons break.
 
-'],['name' => 'Thunders' ,'description'=> '
+'], ['name' => 'Thunders', 'description' => '
  --------
 
 You emit destructive sound and manipulate soundscapes.
@@ -2673,7 +2674,7 @@ Tier 6:
 GM Intrusions:
     Loud noises attract attention.
 
-'],['name' => 'Travels Through Time' ,'description'=> '
+'], ['name' => 'Travels Through Time', 'description' => '
  --------------------
 
 You can see through time, try to reach through it, and eventually even
@@ -2708,7 +2709,7 @@ GM Intrusions:
     Paradoxes are created. Others remember past events
     differently.
 
-'],['name' => 'Was Foretold' ,'description'=> '
+'], ['name' => 'Was Foretold', 'description' => '
  ------------
 
 You are the “chosen one,” and prophecy, prediction, prognostication, or
@@ -2740,7 +2741,7 @@ GM Intrusions:
     threaten to ruin the moment. The character gains a reputation in outside
     circles as a fraud.
 
-'],['name' => 'Wears a Sheen of Ice' ,'description'=> '
+'], ['name' => 'Wears a Sheen of Ice', 'description' => '
  --------------------
 
 You command the wintery power of cold and ice.
@@ -2767,7 +2768,7 @@ GM Intrusions:
     Ice makes surfaces slippery. Extreme cold causes objects
     to crack and break.
 
-'],['name' => 'Wears Power Armor' ,'description'=> '
+'], ['name' => 'Wears Power Armor', 'description' => '
  -----------------
 
 Tier 1:
@@ -2797,7 +2798,7 @@ GM Intrusions:
     power. The armor suffers a momentary power loss. NPCs are scared by the
     power armor.
 
-'],['name' => 'Wields Two Weapons at Once' ,'description'=> '
+'], ['name' => 'Wields Two Weapons at Once', 'description' => '
  --------------------------
 
 You bear steel with both hands, ready to take on any foe.
@@ -2827,7 +2828,7 @@ GM Intrusions:
     A blade snaps in two or a weapon flies loose from its
     bearer’s grip.
 
-'],['name' => 'Works for a Living' ,'description'=> '
+'], ['name' => 'Works for a Living', 'description' => '
  ------------------
 
 You take great satisfaction in a job well done, whether it’s coding,
@@ -2859,7 +2860,7 @@ GM Intrusions:
     and still carry an electrical charge. Some people are rude to those who
     work for a living.
 
-'],['name' => 'Works Miracles' ,'description'=> '
+'], ['name' => 'Works Miracles', 'description' => '
  --------------
 
 You can heal others with a touch, alter time to help others, and are
@@ -2888,7 +2889,7 @@ GM Intrusions:
     individual needs a healer so desperately that they hold one against
     their will.
 
-'],['name' => 'Works the Back Alleys' ,'description'=> '
+'], ['name' => 'Works the Back Alleys', 'description' => '
  ---------------------
 
 You make your way unseen, stealing from the wealthy to achieve your
@@ -2915,7 +2916,7 @@ Tier 6:
 GM Intrusions:
     Thieves are thrown in jail. Powerful enemies are made.
 
-'],['name' => 'Works the System' ,'description'=> '
+'], ['name' => 'Works the System', 'description' => '
  ----------------
 
 You can exploit flaws in artificial systems, including but not limited
@@ -2946,7 +2947,7 @@ GM Intrusions:
     Contacts sometimes have ulterior motives. Devices
     sometimes have failsafes or even traps.
 
-'],['name' => 'Would Rather Be Reading' ,'description'=> '
+'], ['name' => 'Would Rather Be Reading', 'description' => '
  -----------------------
 
 Books are your friends. What’s more important than knowledge? Nothing.
@@ -2983,6 +2984,618 @@ GM Intrusions:
 
         foreach ($foci as $focus) {
             CypherFocus::create($focus);
+        }
+
+        $foci = [
+            [
+                'name' => 'abides',
+                'selected_abilities' => ["Golem Body", "Golem Healing"],
+            ],
+            [
+                'name' => 'awakens',
+                'selected_abilities' => ["Dreamcraft"],
+                'skills' => ["Mixing sleep elixirs", "Tasks related to sleep"],
+            ],
+            [
+                'name' => 'absorbs',
+                'selected_abilities' => ["Absorb Kinetic Energy", "Release Energy"],
+            ],
+            [
+                'name' => 'abuses',
+                'selected_abilities' => ["Choose 1 Alchemical ability"],
+                'equipment' => ["Journal of drug recipes", "Ingredients and tools for mixing drugs", "Drug doses for a few weeks"],
+            ],
+            [
+                'name' => 'battles',
+                'selected_abilities' => ["Machine Vulnerabilities", "Anti-Machine Abilities"],
+                'skills' => ["Robotics & computers"],
+            ],
+            [
+                'name' => 'bears',
+                'selected_abilities' => ["Shroud of Flame"],
+            ],
+            [
+                'name' => 'blazes',
+                'selected_abilities' => ["Illumin. Touch"],
+                'skills' => ["Perception involving sight"],
+            ],
+            [
+                'name' => 'becomes',
+                'selected_abilities' => ["Energy Skin", "Release Energy Blast"],
+            ],
+            [
+                'name' => 'brandishes',
+                'selected_abilities' => ["Force Field Shield", "Force Bash"],
+            ],
+            [
+                'name' => 'buildsR',
+                'selected_abilities' => ["Robot Assistant"],
+                'skills' => ["Building/repairing robots"],
+                'equipment' => ["Robot tool kit"],
+            ],
+            [
+                'name' => 'calculates',
+                'selected_abilities' => ["Predictive Equation"],
+                'skills' => ["Standard & higher math"],
+            ],
+            [
+                'name' => 'carries',
+                'selected_abilities' => ["Archer"],
+                'skills' => ["Crafting arrows"],
+                'equipment' => ["Well-made bow", "Arrows x 24"],
+            ],
+            [
+                'name' => 'channels',
+                'selected_abilities' => ["Blessing of the Gods"],
+            ],
+            [
+                'name' => 'charges',
+                'selected_abilities' => ["Charge Attack"],
+                'skills' => ["Initiative"],
+            ],
+            [
+                'name' => 'commands',
+                'selected_abilities' => ["Telepathic"],
+            ],
+            [
+                'name' => 'conducts',
+                'selected_abilities' => ["Lab Analysis"],
+                'skills' => ["Choose 1 science knowledge"],
+            ],
+            [
+                'name' => 'conceals',
+                'selected_abilities' => ["Natural-Born Liar"],
+                'skills' => ["Choose 1: disguise, decept, lockpick, pickpocket, see thru decept, sl. of hand, stealth"],
+            ],
+            [
+                'name' => 'consorts',
+                'selected_abilities' => ["Speaker for the Dead"],
+            ],
+            [
+                'name' => 'constantly',
+                'selected_abilities' => ["Improved Mutation"],
+                'equipment' => ["Substances to further mutations"],
+            ],
+            [
+                'name' => 'controlsB',
+                'selected_abilities' => ["Beast Companion"],
+            ],
+            [
+                'name' => 'controlsG',
+                'selected_abilities' => ["Hover"],
+            ],
+            [
+                'name' => 'craftsI',
+                'selected_abilities' => ["Minor Illusion"],
+            ],
+            [
+                'name' => 'craftsUO',
+                'skills' => ["Choose 2 crafting skills", "IDing any device"],
+                'equipment' => ["Crafting tools"],
+            ],
+            [
+                'name' => 'dances',
+                'selected_abilities' => ["Ribbons of Dark Matter"],
+            ],
+            [
+                'name' => 'defendsG',
+                'selected_abilities' => ["Fortified Position", "Rally to Me"],
+                'equipment' => ["Strange device"],
+            ],
+            [
+                'name' => 'defendsW',
+                'selected_abilities' => ["Warding Shield"],
+                'skills' => ["Intellect defense", "Initiative"],
+                'equipment' => ["A shield"],
+            ],
+            [
+                'name' => 'descends',
+                'selected_abilities' => ["Privileged Nobility"],
+                'equipment' => ["Clothing (expensive)"],
+                'abilities' => ["Retinue"]
+            ],
+            [
+                'name' => 'doesnt',
+                'skills' => ["Choose 2 noncombat skills"],
+            ],
+            [
+                'name' => 'drives',
+                'skills' => ["Drive/repair car/truck/motorcycle"],
+                'selected_abilities' => ["Drive on the Edge"],
+            ],
+            [
+                'name' => 'delved',
+                'selected_abilities' => ["Void Matter Infusion"],
+            ],
+            [
+                'name' => 'devotes',
+                'selected_abilities' => ["Fanatic"],
+                'skills' => ["Choose 1 knowledge skill rel. to your cause"],
+                'equipment' => ["Booklet related to your cause"],
+            ],
+            [
+                'name' => 'emerged',
+                'selected_abilities' => ["Crystalline Body"],
+                'might_pool' => 4,
+            ],
+            [
+                'name' => 'employs',
+                'selected_abilities' => ["Move Metal"],
+            ],
+            [
+                'name' => 'entertains',
+                'selected_abilities' => ["Levity"],
+            ],
+            [
+                'name' => 'exists2',
+                'selected_abilities' => ["Duplicate", "Share Senses"],
+            ],
+            [
+                'name' => 'existsP',
+                'selected_abilities' => ["Walk Through Walls"],
+            ],
+            [
+                'name' => 'exploresDP',
+                'skills' => ["Searching", "Listen", "Climbing ", "Balance ", "Jumping "],
+            ],
+            [
+                'name' => 'exploresDW',
+                'selected_abilities' => ["Diver", "Hold Breath"],
+                'equipment' => ["Water-breathing oddity"],
+                'abilities' => ["Create Water"]
+            ],
+            [
+                'name' => 'fell',
+                'selected_abilities' => ["Uncanny"],
+                'skills' => ["Choose 1 esoteric knowledge skill"],
+                'equipment' => ["Bit and pieces of automatons"],
+            ],
+            [
+                'name' => 'fightsD',
+                'selected_abilities' => ["Stalker"],
+                'skills' => ["Tracking"],
+            ],
+            [
+                'name' => 'fightsWP',
+                'selected_abilities' => ["Attack Flourish"],
+            ],
+            [
+                'name' => 'flies',
+                'selected_abilities' => ["Hover"],
+            ],
+            [
+                'name' => 'figures',
+                'selected_abilities' => ["Applied Observation"],
+                'equipment' => ["Journal & quill"],
+            ],
+            [
+                'name' => 'focusesMM',
+                'selected_abilities' => ["Divert Attacks"],
+            ],
+            [
+                'name' => 'focuses2',
+                'selected_abilities' => ["Greater Fugue State", "Easier Change"],
+            ],
+            [
+                'name' => 'forges',
+                'selected_abilities' => ["Share Focus", "Bond "],
+            ],
+            [
+                'name' => 'fusesFS',
+                'might_pool' => 3,
+                'speed_pool' => 3,
+                'selected_abilities' => ["Enhanced Body"],
+            ],
+            [
+                'name' => 'fusesMM',
+                'intellect_pool' => 3,
+                'skills' => ["Choose 2 knowledge skills"],
+            ],
+            [
+                'name' => 'grows',
+                'selected_abilities' => ["Enlarge ", "Freakishly Large"],
+            ],
+            [
+                'name' => 'gazes',
+                'might_pool' => 4,
+                'might_edge' => 1,
+                'equipment' => ["Manacles"],
+                'selected_abilities' => ["Natural Weapons"],
+            ],
+            [
+                'name' => 'helps',
+                'selected_abilities' => ["Friendly Help"],
+                'skills' => ["Initiative", "Intellect Defense"],
+                'abilities' => ["Advice from Friend"]
+            ],
+            [
+                'name' => 'howls',
+                'selected_abilities' => ["Beast Form"],
+            ],
+            [
+                'name' => 'huntsN',
+                'selected_abilities' => ["Tracker & Hunter", "Nonhuman Fighter"],
+            ],
+            [
+                'name' => 'huntsO',
+                'selected_abilities' => ["Outcast Fighter"],
+                'equipment' => ["Hunting aids"],
+            ],
+            [
+                'name' => 'huntsWGS',
+                'skills' => ["Following & IDing tracks"],
+                'selected_abilities' => ["Attack Flourish"],
+            ],
+            [
+                'name' => 'infiltrates',
+                'skills' => ["Sensing lies", "Sense if target will believe lies", "Choose 2 from: disguise, deception, lockpicking, pickpocketing, see thru deception, sleight of hand, or stealth"],
+            ],
+            [
+                'name' => 'interprets',
+                'skills' => ["Deception / persuasion", "Detecting falsehoods", "Knowledge of the law"],
+            ],
+            [
+                'name' => 'idolized',
+                'skills' => ["Choose 1 creative skill you are famous for"],
+                'selected_abilities' => ["Entourage"],
+            ],
+            [
+                'name' => 'leads',
+                'skills' => ["All social interactions"],
+                'selected_abilities' => ["Good Advice"],
+            ],
+            [
+                'name' => 'licensed',
+                'selected_abilities' => ["Gunner", "Practiced w/ guns"],
+            ],
+            [
+                'name' => 'wanted',
+                'speed_pool' => 3,
+                'selected_abilities' => ["Danger Sense"],
+            ],
+            [
+                'name' => 'keeps',
+                'selected_abilities' => ["Bound Magic Ally"],
+            ],
+            [
+                'name' => 'likes',
+                'selected_abilities' => ["Feat of Strength"],
+                'equipment' => ["A hammer"],
+            ],
+            [
+                'name' => 'livesIW',
+                'might_pool' => 3,
+                'skills' => ["Choose 2: climbing, swimming, navigation, or IDing plants and creatures"],
+            ],
+            [
+                'name' => 'livesOR',
+                'equipment' => ["Your explorer's pack is upgraded"],
+                'might_pool' => 4,
+                'skills' => ["Choose 1 language"],
+            ],
+            [
+                'name' => 'looks',
+                'skills' => ["Healing"],
+                'selected_abilities' => ["Fists of Fury"],
+            ],
+            [
+                'name' => 'learns',
+                'intellect_pool' => 3,
+                'skills' => ["Solve problems w/ mult. solutions"],
+            ],
+            [
+                'name' => 'loves',
+                'selected_abilities' => ["Microgravity Adept"],
+                'skills' => ["Choose 2: vacuum welding, algae farming, ecosystem design, circuit design, spacecraft maint./repair, or similar"],
+                'abilities' => ["Have Spacesuit, Will..."]
+            ],
+            [
+                'name' => 'makes',
+                'equipment' => ["Pack of light tools"],
+                'skills' => ["Choose 1 crafting skill"],
+                'selected_abilities' => ["Improvise"],
+            ],
+            [
+                'name' => 'manipulates',
+                'selected_abilities' => ["Bubble of Protection"],
+            ],
+            [
+                'name' => 'mastersD',
+                'selected_abilities' => ["Shield Master"],
+            ],
+            [
+                'name' => 'mastersS',
+                'selected_abilities' => ["Spellbook", "Arcane Flare"],
+                'equipment' => ["Spellbook or equivalent"],
+            ],
+            [
+                'name' => 'mastersI',
+                'selected_abilities' => ["Influence Swarm"],
+            ],
+            [
+                'name' => 'mastersW',
+                'selected_abilities' => ["Weapon Master"],
+                'equipment' => ["A high-quality weapon"],
+                'skills' => ["Crafting tasks rel. to chosen weapon"],
+            ],
+            [
+                'name' => 'metes',
+                'skills' => ["See thru deception incl. lies"],
+                'selected_abilities' => ["Designation"],
+            ],
+            [
+                'name' => 'movesC',
+                'skills' => ["Balancing"],
+                'speed_pool' => 6,
+            ],
+            [
+                'name' => 'movesW',
+                'selected_abilities' => ["Fleet of Foot"],
+                'speed_pool' => 6,
+            ],
+            [
+                'name' => 'murders',
+                'skills' => ["Stealth & disguise"],
+                'selected_abilities' => ["Surprise Attack"],
+            ],
+            [
+                'name' => 'needs',
+                'selected_abilities' => ["Fists of Fury", "Flesh of Stone"],
+            ],
+            [
+                'name' => 'never',
+                'selected_abilities' => ["Rapid Recovery", "Push on Through"],
+            ],
+            [
+                'name' => 'operates',
+                'equipment' => ["Disguise kit"],
+                'skills' => ["Perception", "Deception", "Cryptography", "Breaking into computers"],
+            ],
+            [
+                'name' => 'performs',
+                'might_edge' => 1,
+                'equipment' => ["Weapon"],
+                'skills' => ["Carrying", "Climbing", "Jumping", "Smashing things"],
+            ],
+            [
+                'name' => 'pilots',
+                'skills' => ["All tasks rel. to piloting starcraft"],
+                'selected_abilities' => ["Flex Lore Skill"],
+            ],
+            [
+                'name' => 'playsG',
+                'skills' => ["Choose 2 noncombat skills"],
+                'selected_abilities' => ["Gamer"],
+            ],
+            [
+                'name' => 'possesses',
+                'equipment' => ["Crystal lens"],
+                'skills' => ["Visual perception"],
+                'selected_abilities' => ["Illuminating Touch"],
+            ],
+            [
+                'name' => 'provides',
+                'skills' => ["Healing"],
+                'selected_abilities' => ["Good Advice"],
+            ],
+            [
+                'name' => 'rages',
+                'selected_abilities' => ["Frenzy"],
+            ],
+            [
+                'name' => 'reforges',
+                'selected_abilities' => ["Rapid Reforging"],
+                'additional_pool' => 3
+            ],
+            [
+                'name' => 'rides',
+                'selected_abilities' => ["Charge", "Shock"],
+            ],
+            [
+                'name' => 'runs',
+                'selected_abilities' => ["Go Defensive"],
+            ],
+            [
+                'name' => 'sailed',
+                'skills' => ["Sailing & coastal geography"],
+                'selected_abilities' => ["Ignore the Pain"],
+            ],
+            [
+                'name' => 'scavenges',
+                'skills' => ["Might Defense", "Stealth", "Scavenging"],
+            ],
+            [
+                'name' => 'sees',
+                'selected_abilities' => ["See the Unseen"],
+            ],
+            [
+                'name' => 'separates',
+                'selected_abilities' => ["Third Eye"],
+            ],
+            [
+                'name' => 'shepherdsS',
+                'selected_abilities' => ["Question the Spirits"],
+            ],
+            [
+                'name' => 'shepherdsC',
+                'skills' => ["Persuasion/intimidation rel. to your community"],
+                'selected_abilities' => ["Community Knowledge"],
+            ],
+            [
+                'name' => 'shapes',
+                'selected_abilities' => ["Create Liquid Item"],
+            ],
+            [
+                'name' => 'shreds',
+                'selected_abilities' => ["Phase Sprint", "Disrupting Touch "],
+            ],
+            [
+                'name' => 'siphons',
+                'selected_abilities' => ["Drain Machine"],
+            ],
+            [
+                'name' => 'speaks',
+                'equipment' => ["Intellect artifact"],
+                'skills' => ["Scan estry. (if you have it)"],
+                'selected_abilities' => ["Knowledge Tap", "Machine Interf."],
+            ],
+            [
+                'name' => 'slays',
+                'skills' => ["Monster knowledge", "Monster languages"],
+                'selected_abilities' => ["Practiced with swords", "Monster Bane"],
+            ],
+            [
+                'name' => 'speaksFL',
+                'skills' => ["Wilderness navigation", "IDing plants & creatures"],
+                'selected_abilities' => ["Seeds of Fury"],
+            ],
+            [
+                'name' => 'solves',
+                'skills' => ["Perception"],
+                'selected_abilities' => ["Investigator"],
+            ],
+            [
+                'name' => 'stands',
+                'selected_abilities' => ["Experienced defender", "Practiced in Armor"],
+            ],
+            [
+                'name' => 'stares',
+                'equipment' => ["1 weapon (any kind)"],
+                'skills' => ["Perception & intimidation"],
+                'selected_abilities' => ["Rally On Me"],
+            ],
+            [
+                'name' => 'steps',
+                'equipment' => ["Add'l explorer's pack"],
+                'skills' => ["Alternate dimension knowledge"],
+                'selected_abilities' => ["Walk Through Walls"],
+            ],
+            [
+                'name' => 'talks',
+                'skills' => ["Electrical machines (all tasks)"],
+                'selected_abilities' => ["Distant Interface"],
+            ],
+            [
+                'name' => 'throws',
+                'selected_abilities' => ["Precision"],
+            ],
+            [
+                'name' => 'thunders',
+                'selected_abilities' => ["Thunder Beam"],
+            ],
+            [
+                'name' => 'travels',
+                'selected_abilities' => ["Anticipation"],
+            ],
+            [
+                'name' => 'wasF',
+                'skills' => ["Choose 2: persuade, deceive, public speaking, see thru decept., intimidate", "Choose 1 Knowledge skill"],
+            ],
+            [
+                'name' => 'ventures',
+                'equipment' => ["Small starship (w/ GM approval)"],
+                'skills' => ["Knowledge of nearby planets"],
+                'selected_abilities' => ["Air Supply"],
+            ],
+            [
+                'name' => 'wearsSI',
+                'selected_abilities' => ["Ice Armor"],
+            ],
+            [
+                'name' => 'wearsPA',
+                'equipment' => ["Powered Armor (see pg 171)"],
+                'might_pool' => 3,
+                'selected_abilities' => ["Powered Armor"],
+            ],
+            [
+                'name' => 'wieldsW',
+                'selected_abilities' => ["Savage Whip"],
+                'equipment' => ["Add'l whip (disguised as belt)"],
+            ],
+            [
+                'name' => 'wieldsP',
+                'equipment' => ["Add'l book (numenera)"],
+                'intellect_pool' => 5,
+            ],
+            [
+                'name' => 'wields2',
+                'selected_abilities' => ["Dual Light Wield"],
+            ],
+            [
+                'name' => 'wonders',
+                'equipment' => ["Add'l oddity"],
+                'skills' => ["Choose 1 noncombat skill"],
+                'selected_abilities' => ["Asks the Question"],
+            ],
+            [
+                'name' => 'worksFL',
+                'skills' => ["Carpentry", "Plumbing", "Electrical Repair"],
+                'selected_abilities' => ["Handy"],
+            ],
+            [
+                'name' => 'worksS',
+                'skills' => ["Computer software/programming"],
+                'selected_abilities' => ["Hack the Impossible"],
+            ],
+            [
+                'name' => 'worksM',
+                'selected_abilities' => ["Healing Touch"],
+            ],
+            [
+                'name' => 'worksBA',
+                'skills' => ["Choose 2: disguise, deception, lockpicking, pickpocketing, see thru deception, sleight of hand, or stealth"],
+            ],
+            [
+                'name' => 'reading',
+                'skills' => ["Choose 2 noncombat skills"],
+            ],
+        ];
+
+        foreach ($foci as $focus) {
+            $cypherFocus = CypherFocus::whereRaw('lower(name) like \'%' . Str::lower($focus['name']) . '%\'')->first();
+
+            if (!$cypherFocus) {
+                continue;
+            }
+
+            if (isset($focus["selected_abilities"])) {
+                $selectedAbilities = CypherAbility::whereRaw("name LIKE ANY (array['%".implode("%', '%", $focus["selected_abilities"])."%'])")->get();
+                foreach ($selectedAbilities as $ability) {
+                    $cypherFocus->abilities()->attach($ability->id, ['selected' => true]);
+                }
+                unset($focus["selected_abilities"]);
+            }
+            if (isset($focus["abilities"])) {
+
+                $abilities = CypherAbility::whereRaw("name LIKE ANY (array['%".implode("%', '%", $focus["abilities"])."%'])")->get();
+                if ($abilities->isNotEmpty()) {
+                    $cypherFocus->abilities()->syncWithoutDetaching($abilities->pluck('id')->toArray());
+                }
+                unset($focus["abilities"]);
+            }
+
+                unset($focus['name']);
+                $cypherFocus->update($focus);
         }
 
     }

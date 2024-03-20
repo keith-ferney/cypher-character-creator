@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cypher;
 use App\Models\CypherDescriptor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\CypherAbility;
@@ -132,7 +133,7 @@ Energetic:
 
 
 "
-],
+            ],
             [
                 "name" => "Calm",
                 "description" => "
@@ -181,10 +182,10 @@ Bookish:
     4. One of the other PCs dragged you into it.
 
 "
-],
- [
-     "name" => "Chaotic",
-     "description" => "
+            ],
+            [
+                "name" => "Chaotic",
+                "description" => "
     -------
 
 Danger doesn’t mean much to you, mainly because you don’t think much
@@ -221,10 +222,10 @@ Tumultuous:
     4. You have no idea how you joined the PCs. You’re just going along with it for now until answers present themselves.
 
 "
-],
- [
-     "name" => "Charming",
-     "description" => "
+            ],
+            [
+                "name" => "Charming",
+                "description" => "
     --------
 
     You’re a smooth talker and a charmer. Whether through seemingly
@@ -327,10 +328,10 @@ Smart:
     4. You suspect that the other PCs won’t succeed without you.
 
 "
-],
- [
-     "name" => "Clumsy",
-     "description" => "
+            ],
+            [
+                "name" => "Clumsy",
+                "description" => "
     ------
 
     Graceless and awkward, you were told that you’d grow out of it, but you
@@ -387,10 +388,10 @@ Skill:
     4. You stumbled into the PCs as they were discussing their mission, and they took a liking to you.
 
 "
-],
- [
-     "name" => "Craven",
-     "description" => "
+            ],
+            [
+                "name" => "Craven",
+                "description" => "
     ------
 
     Courage fails you at every turn. You lack the willpower and resolve to
@@ -451,10 +452,10 @@ Furtive:
     4. The group answered your cries for help when you were in trouble.
 
 "
-],
- [
-     "name" => "Creative",
-      "description" => "
+            ],
+            [
+                "name" => "Creative",
+                "description" => "
     --------
 
     Maybe you have a notebook where you write down ideas so you can develop
@@ -506,7 +507,7 @@ Inventive:
     4. A creative life is often one beset with financial hurdles. You joined the PCs because you hoped it would be profitable.
 
 "
-],
+            ],
             [
                 "name" => "Cruel",
                 "description" => "
@@ -567,10 +568,10 @@ Cunning:
     4. Joining the PCs gives you an opportunity to escape justice for a crime you committed.
 
 "
-],
- [
-     "name" => "Dishonorable",
-      "description" => "
+            ],
+            [
+                "name" => "Dishonorable",
+                "description" => "
     ------------
 
     There is no honor among thieves—or betrayers, backstabbers, liars, or
@@ -612,10 +613,10 @@ Sneaky:
     4. You bullied your way in with intimidation and bluster.
 
 "
-],
- [
-     "name" => "Doomed",
-      "description" => "
+            ],
+            [
+                "name" => "Doomed",
+                "description" => "
     ------
 
     You are quite certain that your fate is leading you, inextricably,
@@ -656,10 +657,10 @@ Jumpy:
     4. You suspect that the only hope you have of avoiding your fate might lie on this path.
 
 "
-],
- [
-     "name" => "Empathic",
-     "description" => "
+            ],
+            [
+                "name" => "Empathic",
+                "description" => "
     --------
 
     Other people are open books to you. You may have a knack for reading a
@@ -705,10 +706,10 @@ Open Mind:
     4. You joined the PCs to escape an unpleasant relationship or negative environment.
 
 "
-],
- [
-     "name" => "Exiled",
-      "description" => "
+            ],
+            [
+                "name" => "Exiled",
+                "description" => "
     ------
 
     You have walked a long and lonely road, leaving your home and your life
@@ -879,10 +880,10 @@ Agile:
     4. There is reward involved, and you need the money.
 
 "
-],
- [
-     "name" => "Guarded",
-      "description" => "
+            ],
+            [
+                "name" => "Guarded",
+                "description" => "
     -------
 
 You conceal your true nature behind a mask and are loath to let anyone
@@ -924,10 +925,10 @@ Suspicious:
     4. The PCs are the only people who will put up with you.
 
 "
-],
- [
-     "name" => "Hardy",
-      "description" => "
+            ],
+            [
+                "name" => "Hardy",
+                "description" => "
     -----
 
 Your body was built to take abuse. Whether you’re pounding down stiff
@@ -979,10 +980,10 @@ Skill:
     4. You believe the only way the PCs will succeed is if you are along to protect them.
 
 "
-],
- [
-     "name" => "Hideous",
-     "description" => "
+            ],
+            [
+                "name" => "Hideous",
+                "description" => "
     -------
 
 You are physically repugnant by almost any human standard. You might
@@ -1022,10 +1023,10 @@ Versatile:
     4. You bullied your way in with intimidation and bluster.
 
 "
-],
- [
-     "name" => "Honorable",
-      "description" => "
+            ],
+            [
+                "name" => "Honorable",
+                "description" => "
     ---------
 
 You are trustworthy, fair, and forthright. You try to do what is right,
@@ -1062,10 +1063,10 @@ Stalwart:
     4. You asked politely if you could join the other PCs in their mission.
 
 "
-],
- [
-     "name" => "Impulsive",
-      "description" => "
+            ],
+            [
+                "name" => "Impulsive",
+                "description" => "
     ---------
 
 You have a hard time tamping down your enthusiasm. Why wait when you can
@@ -1115,10 +1116,10 @@ Skill:
                                                                      4. You’re in trouble for acting recklessly. You join the other PCs because they offer a way out of your problem.
 
 "
-],
- [
-     "name" => "Inquisitive",
-      "description" => "
+            ],
+            [
+                "name" => "Inquisitive",
+                "description" => "
     -----------
 
 The world is vast and mysterious, with wonders and secrets to keep you
@@ -1174,10 +1175,10 @@ Smart:
     4. One of the PCs fascinates you, perhaps due to a special or weird ability they have.
 
 "
-],
- [
-     "name" => "Intelligent",
-     "description" => "
+            ],
+            [
+                "name" => "Intelligent",
+                "description" => "
     -----------
 
 You’re quite smart. Your memory is sharp, and you easily grasp concepts
@@ -1211,10 +1212,10 @@ Smart:
     4. A colleague requested that you take part in the mission as a favor.
 
 "
-],
- [
-     "name" => "Intuitive",
-      "description" => "
+            ],
+            [
+                "name" => "Intuitive",
+                "description" => "
     ---------
 
 You are often tickled by a sense of knowing what someone will say, how
@@ -1248,10 +1249,10 @@ Innate:
     4. You’re confident the reason you arrived at this point will soon become clear.
 
 "
-],
- [
-     "name" => "Jovial",
-      "description" => "
+            ],
+            [
+                "name" => "Jovial",
+                "description" => "
     ------
 
     You’re cheerful, friendly, and outgoing. You put others at ease with a
@@ -1334,10 +1335,10 @@ Emotionally Intuitive:
     4. Your job, which seemed like it would be personally rewarding, is the opposite. You join the PCs to escape the drudgery.
 
 "
-],
- [
-     "name" => "Learned",
-      "description" => "
+            ],
+            [
+                "name" => "Learned",
+                "description" => "
     -------
 
 You have studied, either on your own or with an instructor. You know
@@ -1372,10 +1373,10 @@ Smart:
     4. A colleague requested that you take part in the mission as a favor.
 
 "
-],
- [
-     "name" => "Lucky",
-     "description" => "
+            ],
+            [
+                "name" => "Lucky",
+                "description" => "
     -----
 
 You rely on chance and timely good luck to get you through many
@@ -1460,10 +1461,10 @@ Inability:
     4. You feel compelled by inexplicable intuition.
 
 "
-],
- [
-     "name" => "Mechanical",
-      "description" => "
+            ],
+            [
+                "name" => "Mechanical",
+                "description" => "
     ----------
 
     You have a special talent with machines of all kinds, and you’re adept
@@ -1499,10 +1500,10 @@ Smart:
     4. Another PC asked you to join them.
 
 "
-],
- [
-     "name" => "Mysterious",
-      "description" => "
+            ],
+            [
+                "name" => "Mysterious",
+                "description" => "
     ----------
 
     The dark figure lurking silently in the corner? That’s you. No one
@@ -1543,10 +1544,10 @@ Skill:
     4. Something—a feeling, a dream—told you where to be and when to join the group.
 
 "
-],
- [
-     "name" => "Mystical",
-      "description" => "
+            ],
+            [
+                "name" => "Mystical",
+                "description" => "
     --------
 
     You think of yourself as mystical, attuned with the mysterious and the
@@ -1591,10 +1592,10 @@ Smart:
     4. Various signs and portents led you here.
 
 "
-],
- [
-     "name" => "Naive",
-     "description" => "
+            ],
+            [
+                "name" => "Naive",
+                "description" => "
     -----
 
 You’ve lived a sheltered life. Your childhood was safe and secure, so
@@ -1632,10 +1633,10 @@ Fresh:
     4. Sounded like fun.
 
 "
-],
- [
-     "name" => "Perceptive",
-      "description" => "
+            ],
+            [
+                "name" => "Perceptive",
+                "description" => "
     ----------
 
     You miss little. You pick out the small details in the world around you
@@ -1684,10 +1685,10 @@ Smart:
     4. A third party recruited you to follow the PCs and see what they were up to.
 
 "
-],
- [
-     "name" => "Resilient",
-      "description" => "
+            ],
+            [
+                "name" => "Resilient",
+                "description" => "
     ---------
 
 You can take a lot of punishment, both physically and mentally, and
@@ -1731,10 +1732,10 @@ Resistant:
     4. You lost a bet—unfairly, you think—and had to take someone’s place on this mission.
 
 "
-],
- [
-     "name" => "Risk-Taking",
-      "description" => "
+            ],
+            [
+                "name" => "Risk-Taking",
+                "description" => "
     -----------
 
 It’s part of your nature to question what others think can’t or
@@ -1778,10 +1779,10 @@ Nimble:
     4. You bragged that you never saw a risk you didn’t like, which is how you reached your current point.
 
 "
-],
- [
-     "name" => "Rugged",
-      "description" => "
+            ],
+            [
+                "name" => "Rugged",
+                "description" => "
     ------
 
     You’re a nature lover accustomed to living rough, pitting your wits
@@ -1822,10 +1823,10 @@ Skill:
     4. There is reward involved, and you need the money.
 
 "
-],
- [
-     "name" => "Sharp-Eyed",
-      "description" => "
+            ],
+            [
+                "name" => "Sharp-Eyed",
+                "description" => "
     ----------
 
     You’re perceptive and well aware of your surroundings. You notice the
@@ -1854,10 +1855,10 @@ Skill:
     4. You’ve been noticing some strange things going on, and this all appears related.
 
 "
-],
- [
-     "name" => "Skeptical",
-      "description" => "
+            ],
+            [
+                "name" => "Skeptical",
+                "description" => "
     ---------
 
 You possess a questioning attitude regarding claims that are often taken
@@ -1892,10 +1893,10 @@ Initial Link to the Starting Adventure:
     4. You need money to fund your research.
 
 "
-],
- [
-     "name" => "Stealthy",
-      "description" => "
+            ],
+            [
+                "name" => "Stealthy",
+                "description" => "
     --------
 
     You’re sneaky, slippery, and fast. These talents help you hide, move
@@ -1932,10 +1933,10 @@ Quick:
     4. You overheard the other PCs talking about a topic that interested you, so you decided to approach the group.
 
 "
-],
- [
-     "name" => "Strong",
-     "description" => "
+            ],
+            [
+                "name" => "Strong",
+                "description" => "
     ------
 
     You’re extremely strong and physically powerful, and you use these
@@ -1967,10 +1968,10 @@ Very Powerful:
     4. There is reward involved, and you need the money.
 
 "
-],
- [
-     "name" => "Strong-Willed",
-      "description" => "
+            ],
+            [
+                "name" => "Strong-Willed",
+                "description" => "
     -------------
 
 You’re tough-minded, willful, and independent. No one can talk you into
@@ -2006,10 +2007,10 @@ Willful:
     4. There is reward involved, and you need the money.
 
 "
-],
- [
-     "name" => "Swift",
-      "description" => "
+            ],
+            [
+                "name" => "Swift",
+                "description" => "
     -----
 
 You move quickly, able to sprint in short bursts and work with your
@@ -2042,10 +2043,10 @@ Skill:
     4. There is reward involved, and you need the money.
 
 "
-],
- [
-     "name" => "Tongue-Tied",
-      "description" => "
+            ],
+            [
+                "name" => "Tongue-Tied",
+                "description" => "
     -----------
 
 You’ve never been much of a talker. When forced to interact with others,
@@ -2084,10 +2085,10 @@ Inability:
     4. One of the other PCs recruited you for your talents.
 
 "
-],
- [
-     "name" => "Tough",
-      "description" => "
+            ],
+            [
+                "name" => "Tough",
+                "description" => "
     -----
 
 You’re strong and can take a lot of physical punishment. You might have
@@ -2118,10 +2119,10 @@ Resilient:
     4. You stepped in to defend one of the PCs when that character was threatened. While talking to them afterward, you heard about the group’s task.
 
 "
-],
- [
-     "name" => "Vicious",
-     "description" => "
+            ],
+            [
+                "name" => "Vicious",
+                "description" => "
     -------
 
 You try to hide what’s inside, fold it into yourself when everything
@@ -2163,10 +2164,10 @@ Skill:
     4. One of the other PCs asked you to come along, believing that your viciousness could be harnessed for the benefit of the mission.
 
 "
-],
- [
-     "name" => "Virtuous",
-      "description" => "
+            ],
+            [
+                "name" => "Virtuous",
+                "description" => "
     --------
 
     Doing the right thing is a way of life. You live by a code, and that
@@ -2200,10 +2201,10 @@ Dauntless:
     4. You put virtue before sense and defended someone’s honor in the face of an organization or power far greater than you. You joined the PCs because they offered aid and friendship when, out of fear of reprisals, no one else would.
 
 "
-],
- [
-     "name" => "Weird",
-      "description" => "
+            ],
+            [
+                "name" => "Weird",
+                "description" => "
     -----
 
 You aren’t like anyone else, and that’s fine with you. People don’t seem
@@ -2263,6 +2264,586 @@ Inner Light:
 
         foreach ($descriptors as $descriptor) {
             CypherDescriptor::create($descriptor);
+        }
+
+        $descriptors = [
+            // === descriptors for Revised Cypher System Character Generator ===
+            [
+                'name' => 'Appealing',
+                'intellect_pool' => 2,
+                'skills' => ["Pleasant social interaction", "Resisting persuasion/seduction"],
+            ],
+            [
+                'name' => 'Beneficent',
+                'skills' => ["Pleasant soc. interact. / Gain trust"],
+                'selected_abilities' => ["Generous", "Altruistic", "Helpful"],
+                'inabilities' => ["Int tasks when alone", "Speed tasks when alone"],
+            ],
+            [
+                'name' => 'Brash',
+                'speed_pool' => 2,
+                'skills' => ["Initiative", "Overcoming fear/intim."],
+                'selected_abilities' => ["First Strike"],
+            ],
+            [
+                'name' => 'Chaotic',
+                'speed_pool' => 4,
+                'selected_abilities' => ["Chaotic"],
+                'skills' => ["Intellect Defence"],
+                'inabilities' => ["Might Defence"],
+            ],
+            [
+                'name' => 'Calm',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Trivia"],
+                'skills' => ["4 nonphysical skills"],
+                'inabilities' => ["Physical attacks", "Climbing", "Running", "Jumping", "Swimming"],
+            ],
+            [
+                'name' => 'Abrasive',
+                'might_pool' => 2,
+                'skills' => ["See thru lies & deception", "Choose 2:", " (climb, run, break things, jump, swim, lockpick, stealth, repair)"],
+                'inabilities' => ["Pleasant social interaction"],
+            ],
+            [
+                'name' => 'Half-Giant',
+                'might_pool' => 4,
+                'inabilities' => ["Initiative", "Stealth", "Fine manip. (e.g. lockpicking, repair)"],
+                'selected_abilities' => ["Mass & Strength", "Breaker"],
+                'equipment' => ["1 add\'l heavy weapon"],
+            ],
+            [
+                'name' => 'Helborn',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Fire-adapted", "Helborn Magic (special: page 259)", "Inner Evil"],
+                'skills' => ["Magic & underworld lore"],
+                'inabilities' => ["Persuade or deceive"],
+            ],
+            [
+                'name' => 'Aggressive',
+                'might_pool' => 2,
+                'speed_pool' => 2,
+                'skills' => ["Initiative"],
+                'selected_abilities' => ["First Strike"],
+                'inabilities' => ["Pleasant social interaction"],
+            ],
+            [
+                'name' => 'Altruistic',
+                'might_pool' => 3,
+                'selected_abilities' => ["Expert Helper"],
+                'skills' => ["Pleasant social interaction"],
+            ],
+            [
+                'name' => 'Amusing',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Disarm With Humor "],
+                'skills' => ["Pleasant social interaction"],
+            ],
+            [
+                'name' => 'Charming',
+                'intellect_pool' => 2,
+                'equipment' => ["1 add'l moderate-priced item"],
+                'selected_abilities' => ["Influential Contact"],
+                'inabilities' => ["Lore, knowledge, understanding", "Resisting mental attacks"],
+                'skills' => ["Positive/pleasant social interaction", "Abilities that influence minds"],
+            ],
+            [
+                'name' => 'Clever',
+                'intellect_pool' => 2,
+                'equipment' => ["1 add'l expensive item"],
+                'inabilities' => ["Lore, knowledge, understanding"],
+                'skills' => ["Lies & trickery", "Resist mental effects", "IDing or assessing danger", "Assessing quality/importance/function/power"],
+            ],
+            [
+                'name' => 'Clumsy',
+                'might_pool' => 2,
+                'speed_pool' => -2,
+                'selected_abilities' => ["Dumb Luck"],
+                'inabilities' => ["Balance, grace, coordination"],
+                'skills' => ["Pleasant social interaction when self-deprecating", "Breaking things"],
+            ],
+            [
+                'name' => 'Craven',
+                'speed_pool' => 2,
+                'equipment' => ["Good luck charm"],
+                'inabilities' => ["Any dangerous task attempted alone", "Initiative"],
+                'skills' => ["Stealth", "Running", "Escape danger / wheedle out of trouble"],
+            ],
+            [
+                'name' => 'Creative',
+                'intellect_pool' => 2,
+                'inabilities' => ["Pleasant social interaction"],
+                'skills' => ["Creating narratives incl. deception", "Choose 1 creative skill", "Puzzle-solving"],
+            ],
+            [
+                'name' => 'Cruel',
+                'intellect_pool' => 2,
+                'equipment' => ["Memento (moderated-priced)"],
+                'selected_abilities' => ["Cruelty"],
+                'inabilities' => ["Ascertain motives/feelings"],
+                'skills' => ["Deceive/intimidate/persuade others in pain"],
+            ],
+            [
+                'name' => 'Deliberate',
+                'intellect_pool' => 4,
+                'inabilities' => ["Speed defense"],
+                'skills' => ["Puzzle-solving", "See thru deception", "Perception"],
+            ],
+            [
+                'name' => 'Devout',
+                'intellect_pool' => 3,
+                'selected_abilities' => ["Steadfast"],
+            ],
+            [
+                'name' => 'Dishonorable',
+                'speed_pool' => 4,
+                'selected_abilities' => ["Just Desserts"],
+                'inabilities' => ["Pleasant social interaction"],
+                'skills' => ["Stealth", "Deception", "Intimidation"],
+            ],
+            [
+                'name' => 'Doomed',
+                'speed_pool' => 2,
+                'selected_abilities' => ["Doom"],
+                'skills' => ["Speed defense", "Intellect def. vs. loss of sanity", "Perception"],
+            ],
+            [
+                'name' => 'Driven',
+                'might_pool' => 2,
+                'inabilities' => ["Perception"],
+                'skills' => ["Intellect defense", "Driven Flex skill"],
+            ],
+            [
+                'name' => 'Efficient',
+                'speed_pool' => 2,
+                'inabilities' => ["Deceiving others"],
+                'skills' => ["See thru deception", "Intellect defense", "Perception & puzzle-solving"],
+            ],
+            [
+                'name' => 'Empathic',
+                'intellect_pool' => 4,
+                'inabilities' => ["Intellect defense"],
+                'skills' => ["Sense emotions/dispositions", "Social interaction"],
+            ],
+            [
+                'name' => 'Exiled',
+                'might_pool' => 2,
+                'selected_abilities' => ["Loner"],
+                'inabilities' => ["Social interaction"],
+                'equipment' => ["Memento from your past"],
+                'skills' => ["Foraging & hunting", "Sneaking", "Find safe place to rest/hide"],
+            ],
+            [
+                'name' => 'Fast',
+                'speed_pool' => 2,
+                'selected_abilities' => ["Fast"],
+                'skills' => ["Running"],
+                'inabilities' => ["Might defense"],
+            ],
+            [
+                'name' => 'Fabulous',
+                'speed_pool' => 2,
+                'equipment' => ["Add'l set of clothing (fabulous)"],
+                'selected_abilities' => ["Artistic"],
+                'skills' => ["Creating art (any kind)", "Speed defense", "Pleasant social interaction"],
+            ],
+            [
+                'name' => 'Foolish',
+                'intellect_pool' => -4,
+                'selected_abilities' => ["Carefree", "Intellect Weakness"],
+                'inabilities' => ["Intellect defense", "See thru deception/illusion/traps"],
+            ],
+            [
+                'name' => 'Graceful',
+                'speed_pool' => 2,
+                'skills' => ["Balance & careful movement", "Speed defense", "Physical performing arts"],
+            ],
+            [
+                'name' => 'Gregarious',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["People Person", "Getting the Word"],
+            ],
+            [
+                'name' => 'Guarded',
+                'intellect_pool' => 2,
+                'inabilities' => ["Deception & persuasion"],
+                'skills' => ["Discern truth / see thru deception", "Intellect defense"],
+            ],
+            [
+                'name' => 'Hardy',
+                'might_pool' => 4,
+                'selected_abilities' => ["Fast Healer", "Unstoppable", "Ponderous"],
+                'inabilities' => ["Initiative"],
+                'skills' => ["Might defense"],
+            ],
+            [
+                'name' => 'Hideous',
+                'additional_pool' => 4,
+                'inabilities' => ["Pleasant social interaction"],
+                'skills' => ["Fear-based interaction incl. intimidate", "Disguise & stealth"],
+            ],
+            [
+                'name' => 'Honorable',
+                'might_pool' => 2,
+                'skills' => ["Pleasant social interaction", "Ascertain motive & see thru lies"],
+            ],
+            [
+                'name' => 'Impulsive',
+                'speed_pool' => 2,
+                'inabilities' => ["Patience, willpower, discipline"],
+                'skills' => ["Initiative", "Speed defense"],
+            ],
+            [
+                'name' => 'Inquisitive',
+                'intellect_pool' => 4,
+                'equipment' => ["Three books (any subject)"],
+                'inabilities' => ["Initiative", "Notice/hear danger"],
+                'skills' => ["Learning & getting info", "Geography & history"],
+            ],
+            [
+                'name' => 'Insolent',
+                'speed_pool' => 2,
+                'equipment' => ["Add'l oddity"],
+                'selected_abilities' => ["Goad"],
+                'inabilities' => ["Social interaction"],
+                'skills' => ["Intellect defense"],
+            ],
+            [
+                'name' => 'Intelligent',
+                'intellect_pool' => 2,
+                'skills' => ["Choose 1 knowledge skill", "Remember direct experience"],
+            ],
+            [
+                'name' => 'Intuitive',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Know What to Do"],
+                'skills' => ["Perception"],
+            ],
+            [
+                'name' => 'Jovial',
+                'intellect_pool' => 2,
+                'skills' => ["Pleasant social interaction", "Puzzle-solving"],
+            ],
+            [
+                'name' => 'Kind',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Karma"],
+                'skills' => ["Pleasant social interaction", "Discern dispostion"],
+                'inabilities' => ["Detecting falsehoods"],
+            ],
+            [
+                'name' => 'Intimidating',
+                'selected_abilities' => ["Lower Morale", "Cause Fear"],
+                'skills' => ["Intimidate"],
+            ],
+            [
+                'name' => 'Learned',
+                'intellect_pool' => 2,
+                'equipment' => ["Two books (any subject)"],
+                'inabilities' => ["Charm, persuasion, etiquette"],
+                'skills' => ["Choose 3 knowledge skills"],
+            ],
+            [
+                'name' => 'Lucky',
+                'selected_abilities' => ["Luck Pool", "Advantage"],
+            ],
+            [
+                'name' => 'Lonely',
+                'might_pool' => 2,
+                'selected_abilities' => ["Side Track"],
+                'inabilities' => ["Climb, run, jump, swim", "Resist mental attacks"],
+                'skills' => ["Choose 4 noncombat skills"],
+            ],
+            [
+                'name' => 'Mad',
+                'intellect_pool' => 4,
+                'selected_abilities' => ["Fits of Insight", "Erratic Behavior"],
+                'inabilities' => ["Resist mental attacks"],
+                'skills' => ["1 weird knowledge skill"],
+            ],
+            [
+                'name' => 'Manipulative',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Cautious"],
+                'skills' => ["Intimidation", "Persuasion", "Deception"],
+            ],
+            [
+                'name' => 'Meek',
+                'speed_pool' => 2,
+                'selected_abilities' => ["Easily Intimidated"],
+                'inabilities' => ["Resist intimidation/threats/fear"],
+                'skills' => ["Sneak & hide", "Choose 2 knowledge skills", "Perception", "Speed defense"],
+            ],
+            [
+                'name' => 'Mercurial',
+                'speed_pool' => 2,
+                'selected_abilities' => ["Changeable"],
+                'inabilities' => ["Intellect defense"],
+                'skills' => ["Deception"],
+            ],
+            [
+                'name' => 'Mysterious',
+                'selected_abilities' => ["Confounding"],
+                'inabilities' => ["Getting people to believe/trust"],
+                'skills' => ["Stealth", "Resist interrogation"],
+            ],
+            [
+                'name' => 'Mystical',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Sense Magic", "Hedge Magic"],
+                'inabilities' => ["Charm, persuasion, deception"],
+                'skills' => ["IDing/understanding the supernatural"],
+            ],
+            [
+                'name' => 'Mechanical',
+                'intellect_pool' => 2,
+                'equipment' => ["Various tools"],
+                'skills' => ["IDing/understanding machines", "Using/repairing/crafting machines"],
+            ],
+            [
+                'name' => 'Naive',
+                'selected_abilities' => ["Fresh"],
+                'inabilities' => ["See thru deception", "Ascertain motive"],
+                'skills' => ["Perception", "Intellect defense & resisting temptation"],
+            ],
+            [
+                'name' => 'Noble',
+                'equipment' => ["Lv. 2 Mount OR Servant", "1 add'l expensive item"],
+                'selected_abilities' => ["Respect", "Noble Contact (NPC)"],
+                'skills' => ["Etiquette & interacting w/ nobility"],
+            ],
+            [
+                'name' => 'Obsessive',
+                'selected_abilities' => ["Your Obsession", "Enthralled", "Preoccupied"],
+            ],
+            [
+                'name' => 'Passionate',
+                'selected_abilities' => ["Fever", "Fire Inside"],
+                'inabilities' => ["Restraint or subtlety (incl. sneaking/lying)"],
+                'skills' => ["Running, climbing, swimming"],
+            ],
+            [
+                'name' => 'Perceptive',
+                'intellect_pool' => 2,
+                'equipment' => ["Bag of light tools"],
+                'inabilities' => ["Positive social interaction"],
+                'skills' => ["Find/notice small details", "IDing objects & remembering trivia", "Intimidating others"],
+            ],
+            [
+                'name' => 'Polyglot',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Language Mastery"],
+                'inabilities' => ["Scientific understanding"],
+                'skills' => ["Choose 4 languages", "Pleasant social interaction"],
+            ],
+            [
+                'name' => 'Rebellious',
+                'might_pool' => 2,
+                'selected_abilities' => ["Headstrong"],
+                'skills' => ["Intellect defense"],
+            ],
+            [
+                'name' => 'Resilient',
+                'might_pool' => 2,
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Recover"],
+                'inabilities' => ["Moving, bending, breaking things", "Knowledge & puzzle-solving"],
+                'skills' => ["Intellect defense", "Might defense"],
+            ],
+            [
+                'name' => 'Resourceful',
+                'intellect_pool' => 2,
+                'equipment' => ["Bag of light tools"],
+                'selected_abilities' => ["Planner"],
+                'inabilities' => ["Notice danger"],
+                'skills' => ["Learning & getting info"],
+            ],
+            [
+                'name' => 'Risk-Taking',
+                'speed_pool' => 4,
+                'selected_abilities' => ["Press Your Luck"],
+                'inabilities' => ["Sneak / Stay quiet"],
+                'skills' => ["Tasks involving chance"],
+            ],
+            [
+                'name' => 'Rugged',
+                'equipment' => ["Explorer's pack"],
+                'inabilities' => ["Charm, persuasion, etiquette, deception"],
+                'skills' => ["Climb, jump, run, swim", "Training, riding, placating natural animals", "IDing and using natural plants"],
+            ],
+            [
+                'name' => 'Sharp-Eyed',
+                'selected_abilities' => ["Find the Flaw"],
+                'skills' => ["Initiave", "Perception"],
+            ],
+            [
+                'name' => 'Skeptical',
+                'intellect_pool' => 2,
+                'skills' => ["Identifying", "See thru tricks (must conc.)"],
+            ],
+            [
+                'name' => 'Spiritual',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Helpful"],
+                'inabilities' => ["Initiative"],
+                'skills' => ["Pleasant social interaction", "Int. defense & resist temptation"],
+            ],
+            [
+                'name' => 'Stealthy',
+                'speed_pool' => 2,
+                'inabilities' => ["Movement-related tasks"],
+                'skills' => ["Stealth", "Interaction using lies/trickery", "Abilities using illus./trickery"],
+            ],
+            [
+                'name' => 'Strong',
+                'might_pool' => 4,
+                'equipment' => ["Add'l weapon (med. or heavy)"],
+                'skills' => ["Jumping", "Breaking things"],
+            ],
+            [
+                'name' => 'Strong-Willed',
+                'intellect_pool' => 4,
+                'inabilities' => ["Knowledge, memorizing, puzzle-solving"],
+                'skills' => ["Resist mental effects", "Tasks req. great focus/concentration"],
+            ],
+            [
+                'name' => 'Subterranean',
+                'might_pool' => 2,
+                'equipment' => ["Add'l glowglobe", "Pitons x 12", "Add'l rope"],
+                'selected_abilities' => ["Unsettled in the open"],
+                'skills' => ["Finding your way", "Climbing", "Squeeze into/outta tight places"],
+            ],
+            [
+                'name' => 'Swift',
+                'speed_pool' => 2,
+                'inabilities' => ["Balance"],
+                'skills' => ["Initiative", "Running"],
+            ],
+            [
+                'name' => 'Tongue-Tied',
+                'might_pool' => 2,
+                'speed_pool' => 2,
+                'inabilities' => ["Social interaction", "Verbal communication"],
+                'skills' => ["Perception", "Initiative (not social)"],
+            ],
+            [
+                'name' => 'Tough',
+                'equipment' => ["Add'l weapon (light)"],
+                'selected_abilities' => ["Resilient", "Healthy"],
+                'skills' => ["Might defense"],
+            ],
+            [
+                'name' => 'Vengeful',
+                'equipment' => ["Add'l weapon (medium)"],
+                'skills' => ["Intimidation or torture", "Finding/following tracks", "Speed defense"],
+            ],
+            [
+                'name' => 'Vigilant',
+                'intellect_pool' => 2,
+                'equipment' => ["Spyglass"],
+                'skills' => ["See thru deception", "Initiative"],
+            ],
+            [
+                'name' => 'Virtuous',
+                'might_pool' => 2,
+                'skills' => ["Discern motives / see thru lies", "Intellect defense"],
+            ],
+            [
+                'name' => 'Wealthy',
+                'equipment' => ["Add'l expensive item", "All items very fine quality"],
+                'selected_abilities' => ["Connected", "Money Is No Object"],
+            ],
+            [
+                'name' => 'Weird',
+                'intellect_pool' => 2,
+                'selected_abilities' => ["Distinctive Physical Quirk", "A Sense for the Weird"],
+                'inabilities' => ["Pleasant social interaction"],
+                'skills' => ["Supernatural knowledge"],
+            ],
+            [
+                'name' => 'Vicious',
+                'equipment' => ["Record of grudges"],
+                'selected_abilities' => ["Berserk", "Bloodthirsty"],
+                'skills' => ["Tracking creatures (special: see page 58)"],
+            ],
+
+
+            // === genre-specific species descriptors for Cypher System 2 ===
+            [
+                'name' => 'Artificially',
+                'intellect_pool' => 4,
+                'might_pool' => 3,
+                'speed_pool' => 3,
+                'selected_abilities' => ["Shell", "Limited Recovery", "Mechanics, Not Medicine", "Machine (In)vulnerabilities"],
+                'inabilities' => ["Pos. social interaction w/ organics (2 steps)"],
+                'notes' => "The 'Artificially Intelligent' descriptor is genre-specific. Check with your GM for final approval.",
+            ],
+            [
+                'name' => 'Dwarf',
+                'might_pool' => 2,
+                'skills' => ["Tasks related to stone", "Use of stonework & mining tools"],
+                'selected_abilities' => ["Practiced with axe weapons", "Vulnerability"],
+                'equipment' => ["1 axe"],
+                'notes' => "The 'Dwarf' descriptor is genre-specific. Check with your GM for final approval.",
+            ],
+            [
+                'name' => 'Elf',
+                'speed_pool' => 2,
+                'skills' => ["Perception (specialized)", "Stealth tasks", "Stealth (natural woodlands)"],
+                'selected_abilities' => ["Practiced with bow weapons", "Long-lived", "Fragile"],
+                'equipment' => ["Bow, quiver, & arrows"],
+                'notes' => "The 'Elf' descriptor is genre-specific. Check with your GM for final approval.",
+            ],
+            [
+                'name' => 'Quintar',
+                'intellect_pool' => 4,
+                'skills' => ["1 Knowledge skill", "Social interac. w/ humans"],
+                'selected_abilities' => ["Difficult Rest"],
+                'notes' => "The 'Quintar' descriptor is genre-specific. Check with your GM for final approval.",
+            ],
+            [
+                'name' => 'Morlock',
+                'intellect_pool' => 2,
+                'might_pool' => 2,
+                'speed_pool' => 2,
+                'inabilities' => ["Pos. social interaction w/ non-morlocks"],
+                'selected_abilities' => ["Partially Metallic", "Repair & Maint."],
+                'notes' => "The 'Morlock' descriptor is genre-specific. Check with your GM for final approval.",
+            ],
+            [
+                'name' => 'Roach',
+                'speed_edge' => 1,
+                'inabilities' => ["Pos. social interaction w/ non-roaches", "Combat (incl. Attack & Def.)", "Defense vs disease or poison"],
+                'selected_abilities' => ["Carapace", "Cling", "Glide", "Sense by Scent"],
+                'notes' => "The 'Roach' descriptor is genre-specific. Check with your GM for final approval.",
+            ]
+        ];
+
+        foreach ($descriptors as $descriptor) {
+            // handle selected abilities by associating them with the cypher abilities relationship (belongsToMany) with the pivot column 'selected' set to true
+            $cypherDescriptor = CypherDescriptor::firstWhere('name', $descriptor['name']);
+
+            if (!$cypherDescriptor) {
+                continue;
+            }
+
+            if (isset($descriptor['selected_abilities'])) {
+                $selectedAbilities = CypherAbility::whereRaw("name LIKE ANY (array['%" . implode("%', '%", $descriptor['selected_abilities']) . "%'])")->get();
+                foreach ($selectedAbilities as $ability) {
+                    $cypherDescriptor->abilities()->attach($ability->id, ['selected' => true]);
+                }
+                unset($descriptor['selected_abilities']);
+            }
+            if (isset($descriptor['abilities'])) {
+
+                $abilities = CypherAbility::whereRaw("name LIKE ANY (array['%" . implode("%', '%", $descriptor['abilities']) . "%'])")->get();
+                if ($abilities->isNotEmpty()) {
+                    $cypherDescriptor->abilities()->syncWithoutDetaching($abilities->pluck('id')->toArray());
+                }
+                unset($descriptor['abilities']);
+            }
+
+            $cypherDescriptor->update($descriptor);
         }
 
     }

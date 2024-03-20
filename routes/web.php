@@ -5,6 +5,7 @@ use App\Http\Controllers\CharacterAttacksController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\CharacterCyphersController;
 use App\Http\Controllers\CharacterEquipmentController;
+use App\Http\Controllers\CharacterPowerShiftsController;
 use App\Http\Controllers\CharacterSkillsController;
 use App\Http\Controllers\CharacterSpecialAbilityController;
 use App\Http\Controllers\ProfileController;
@@ -74,6 +75,9 @@ Route:: middleware(['auth', 'verified'])
             ->name('characters.attacks.store');
         Route::delete('characters/{character}/attacks/{attack}', [CharacterAttacksController::class, 'destroy'])
             ->name('characters.attacks.destroy');
+
+        Route::put('characters/{character}/power-shifts', [CharacterPowerShiftsController::class, 'sync'])
+            ->name('characters.power-shifts.sync');
 
     })
 ;

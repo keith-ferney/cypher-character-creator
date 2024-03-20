@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\CypherAbility;
+use App\Models\CypherFlavor;
 use App\Models\CypherType;
 use Illuminate\Database\Seeder;
 
@@ -17,6 +18,37 @@ class CypherTypesTableSeeder extends Seeder
         $types = [
             [
                 "name" => "Warrior",
+                'might_pool' => 10,
+                'speed_pool' => 10,
+                'intellect_pool' => 8,
+                'unassigned_edge' => 1,
+                'equipment' => [
+                    "2 weapons",
+                    "1 expensive item",
+                    "2 moderate-priced items",
+                    "4 inexpensive items"
+                ],
+                'selected_abilities' => ["Practiced w/ all weapons"
+                ],
+                'abilities' => [
+                    "Improved Edge",
+                    "Bash",
+                    "Trained w/o Armor",
+                    "Practiced in armor",
+                    "Overwatch",
+                    "Physical Skills",
+                    "Swipe",
+                    "No Need Weapons",
+                    "Control Field",
+                    "Pierce",
+                    "Quick Throw"
+                ],
+                'allowed_ability_count' => 4,
+                'intrusions' => [
+                    "Perfect Setup",
+                    "Old Friend",
+                    "Weapon Break"
+                ],
                 "description" => "
 Fantasy/Fairy tale:
     Warrior, fighter, swordsman, knight, barbarian,
@@ -365,6 +397,35 @@ rogue.
             ],
             [
                 "name" => "Adept",
+                'might_pool' => 7,
+                'speed_pool' => 9,
+                'intellect_pool' => 12,
+                'intellect_edge' => 1,
+                'cyphers_limit' => 3,
+                'equipment' => [
+                    "2 expensive items",
+                    "2 moderate-priced items",
+                    "4 inexpensive items"
+                ],
+                'abilities' => [
+                    "Ward",
+                    "Onslaught",
+                    "Magic Training",
+                    "Shatter",
+                    "Reso. Field",
+                    "Erase Memories",
+                    "Distortion",
+                    "Far Step",
+                    "Hedge Magic",
+                    "Push",
+                    "Scan"
+                ],
+                'allowed_ability_count' => 4,
+                'intrusions' => [
+                    "Advantageous Malfunction",
+                    "Convenient Idea",
+                    "Inexplicably Unbroken"
+                ],
                 "description" => "
 Fantasy/Fairy tale:
     wizard, mage, sorcerer, cleric, druid, seer,
@@ -730,6 +791,41 @@ role in the world and expectations in the game.)
             ],
             [
                 "name" => "Explorer",
+                'might_pool' => 10,
+                'speed_pool' => 9,
+                'intellect_pool' => 9,
+                'might_edge' => 1,
+                'cyphers_limit' => 2,
+                'equipment' => [
+                    "1 weapon",
+                    "2 expensive items",
+                    "2 moderate-priced items",
+                    "4 inexpensive items"
+                ],
+                'selected_abilities' => ["Practiced w/ med. & light weapons"],
+                'abilities' => [
+                    "Block",
+                    "Find the Way",
+                    "2 Physical Skills",
+                    "Practiced in Armor",
+                    "Trained w/o Armor",
+                    "Mus. of Iron",
+                    "Decipher",
+                    "Practiced w/ all weapons",
+                    "Improved Edge",
+                    "Danger Sense",
+                    "Endurance",
+                    "Fleet of Foot",
+                    "No Need Weapons",
+                    "Surging Conf",
+                    "2 Knowledge Skills"
+                ],
+                'allowed_ability_count' => 4,
+                'intrusions' => [
+                    "Fort. Malfunction",
+                    "Serend. Landmark",
+                    "Weak Strain"
+                ],
                 "description" => "
 ========
 
@@ -1077,6 +1173,39 @@ parties, rather than allow them to fall into the hands of pirates and
             ],
             [
                 "name" => "Speaker",
+                'might_pool' => 8,
+                'speed_pool' => 9,
+                'intellect_pool' => 11,
+                'intellect_edge' => 1,
+                'equipment' => [
+                    "1 weapon",
+                    "2 expensive items",
+                    "2 moderate-priced items",
+                    "4 inexpensive items"
+                ],
+                'selected_abilities' => ["Practiced w/ light weapons"
+                ],
+                'abilities' => [
+                    "Inspire Aggression",
+                    "Enthrall",
+                    "Erase Memories",
+                    "Encouragement",
+                    "Fast Talk",
+                    "Practiced With Medium Weapons",
+                    "2 Interac. Skills",
+                    "Spin Identity",
+                    "Terrifying Pres",
+                    "Understanding",
+                    "Babel",
+                    "Demeanor of Command",
+                    "Anecdote"
+                ],
+                'allowed_ability_count' => 4,
+                'intrusions' => [
+                    "Friendly NPC",
+                    "Perfect Suggestion",
+                    "Unexpected Gift"
+                ],
                 "description" => "
 
 Fantasy/Fairy tale:
@@ -1419,12 +1548,32 @@ had an obsession with a strange tome that’s been in her family for
     rituals.
 "
             ]
-
         ];
 
         foreach ($types as $type) {
-            CypherType::create($type);
-        }
+            $abilities = $type['abilities'] ?? null;
+            $selectedAbilities = $type['selected_abilities'] ?? null;
+            unset($type['abilities'], $type['selected_abilities']);
 
+            $cypherType = CypherType::create($type);
+
+            if ($selectedAbilities) {
+                $selectedAbilities = CypherAbility::whereRaw("name LIKE ANY (array['%".implode("%', '%", $selectedAbilities)."%'])")->get();
+
+                foreach ($selectedAbilities as $ability) {
+                    $cypherType->specialAbilities()->attach($ability->id, ['selected' => true]);
+                }
+
+                unset($selectedAbilities);
+            }
+
+            if ($abilities) {
+                $abilities = CypherAbility::whereRaw("name LIKE ANY (array['%".implode("%', '%", $abilities)."%'])")->ray()->get();
+                if ($abilities->isNotEmpty()) {
+                    $cypherType->abilities()->syncWithoutDetaching($abilities->pluck('id')->toArray());
+                }
+                unset($abilities);
+            }
+        }
     }
 }
