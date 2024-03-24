@@ -2,10 +2,12 @@
     <div class="w-full">
         <div class="mt-1 relative w-full">
             <div
+
                 class="border rounded py-2 px-4 bg-white whitespace-nowrap cursor-pointer w-full flex justify-between items-center"
                 :class="[showSelect ? 'rounded-b-none' : 'rounded-b']"
                 @click="showSelect = !showSelect; focusSearch()"
                 @keydown.space.prevent="showSelect = !showSelect; focusSearch()"
+                v-tippy="{ content: '<div style=\'max-height: 90vh; width: 500px; overflow-y: scroll;\'>'+selected[descriptionKey]+'</div>', theme: 'light-border', arrow: true, placement: 'right', maxWidth: 1000, interactive: true }"
                 tabindex="0"
             >
                 {{ selected ? selected[labelKey] : placeholder }}

@@ -157,7 +157,7 @@ export default {
                     style="
                         background-image: url('/CharacterSheetBackground.png');
                     "
-                    class="bg-center bg-cover bg-no-repeat bg-slate-200 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-gray-900 dark:text-black p-6
+                    class="bg-center bg-cover bg-no-repeat bg-slate-200 dark:bg-gray-800 shadow-sm sm:rounded-lg text-gray-900 dark:text-black p-6
                              flex flex-col gap-3 grid-flow-col
                              lg:grid lg:grid-cols-2 lg:grid-rows-[repeat(20,auto)]
                              grid-cols-1 xl:grid-cols-3
