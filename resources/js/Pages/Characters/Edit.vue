@@ -428,15 +428,15 @@ export default {
                     <div
                         class="order-9 row-span-2 bg-white w-full flex flex-col border-r-8 border-b-8 border-black px-3 py-2">
                         <label class="font-medium w-full text-lg underline-offset-8 mb-4 underline">Advancements</label>
-                        <div class="flex flex-row">
+                        <div class="flex lg:flex-row flex-col">
                             <label v-for="cypherAdvancement in cypherAdvancements"
-                                   class="text-black flex flex-col items-center text-center w-fit">
+                                   class="text-black flex flex-col lg:items-center lg:text-center w-fit">
                                 <input type="checkbox" :checked="false"/>
                                 <span class="text-sm" v-text="cypherAdvancement.name"></span>
                                 <small class="text-xs" v-html="cypherAdvancement.description">
                                 </small>
                             </label>
-                            <label class="text-black flex flex-col items-center text-center w-fit">
+                            <label class="text-black flex flex-col lg:items-center lg:text-center w-fit">
                                 <input type="checkbox" :checked="false"/>
                                 <span class="text-sm">Other</span>
                                 <small class="text-xs">As specified in the rule book or something</small>
@@ -470,7 +470,7 @@ export default {
 
                 <div
                     style=" background-image: url('/CharacterSheetBackground.png');"
-                    class="bg-center bg-cover bg-no-repeat bg-slate-200 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-gray-900 dark:text-black p-6 grid grid-cols-3">
+                    class="bg-center bg-cover bg-no-repeat bg-slate-200 dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-gray-900 dark:text-black p-6 flex flex-col lg:grid grid-cols-3">
                     <div class="row-span-12 w-full flex flex-col">
                         <textarea v-model="character.background" type="text"
                                   class="h-[98vh] border-0 border-r-8 border-b-8 border-black"/>

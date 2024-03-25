@@ -29,9 +29,9 @@ console.log(props.characters);
                     <!-- A list of all the Characters: name, descriptor, type, focus, flavor-->
 
                     <table
-                        class="min-w-full divide-y divide-gray-200 dark:divide-gray-700"
+                        class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 flex lg:table"
                     >
-                        <thead class="bg-gray-50 dark:bg-gray-800">
+                        <thead class="bg-gray-50 dark:bg-gray-800 hidden lg:table-header-group">
                         <tr>
                             <th
                                 scope="col"
@@ -71,30 +71,35 @@ console.log(props.characters);
                             </th>
                         </tr>
                         </thead>
-                        <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                        <tr v-for="character in characters">
+                        <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700 flex flex-col lg:table-row-group">
+                        <tr v-for="character in characters" class="flex flex-col">
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm font-medium text-gray-900 dark:text-gray-200">
+                                <div class="text-sm font-medium text-gray-900 dark:text-gray-200 flex flex-wrap">
+                                    <span class="lg:hidden">Name: </span>
                                     {{ character.name }}
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-500 dark:text-gray-400">
+                                    <span class="lg:hidden">Descriptor: </span>
                                     {{ character.cypher_descriptor?.name ?? 'None' }}
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-500 dark:text-gray-400">
+                                    <span class="lg:hidden">Type: </span>
                                     {{ character.cypher_type?.name ?? 'None'}}
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-500 dark:text-gray-400">
+                                    <span class="lg:hidden">Focus: </span>
                                     {{ character.cypher_focus?.name ?? 'None' }}
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-500 dark:text-gray-400">
+                                    <span class="lg:hidden">Flavor: </span>
                                     {{ character.cypher_flavor?.name ?? 'None'}}
                                 </div>
                             </td>

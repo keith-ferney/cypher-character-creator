@@ -25,6 +25,10 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+    if (auth()->check()) {
+        return redirect()->route('characters.index');
+    }
+
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -34,7 +38,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return redirect()->route('characters.index');
 })->middleware(['auth', 'verified'])
     ->name('dashboard');
 

@@ -257,8 +257,8 @@ setThemeMode(themeMode);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                        <ResponsiveNavLink :href="route('characters.index')" :active="route().current('characters.index')">
+                           Characters
                         </ResponsiveNavLink>
                     </div>
 
