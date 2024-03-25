@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('cypher_abilities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique()->nullable();
             $table->longText('description');
             $table->softDeletes();
             $table->timestamps();

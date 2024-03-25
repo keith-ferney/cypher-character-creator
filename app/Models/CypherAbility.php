@@ -13,6 +13,7 @@ class CypherAbility extends Model
 
     protected $fillable = [
         'name',
+        'slug',
         'description',
     ];
 

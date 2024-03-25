@@ -112,15 +112,33 @@ class CharacterController extends Controller
         $character->fill($request->all());
         // if the cypher_focus_id, cypher_type_id, cypher_descriptor_id, or cypher_flavor_id are dirty, then we need to update the might_pool, speed_pool, and intellect_pool
         if ($character->isDirty(['cypher_focus_id', 'cypher_type_id', 'cypher_descriptor_id', 'cypher_flavor_id'])) {
-            $character->might_pool = $character->cypherFocus->might_pool + $character->cypherType->might_pool + $character->cypherDescriptor->might_pool + $character->cypherFlavor->might_pool;
-            $character->speed_pool = $character->cypherFocus->speed_pool + $character->cypherType->speed_pool + $character->cypherDescriptor->speed_pool + $character->cypherFlavor->speed_pool;
-            $character->intellect_pool = $character->cypherFocus->intellect_pool + $character->cypherType->intellect_pool + $character->cypherDescriptor->intellect_pool + $character->cypherFlavor->intellect_pool;
+            $character->might_pool = optional($character->cypherFocus)->might_pool ?? 0
+                + optional($character->cypherType)->might_pool ?? 0
+                + optional($character->cypherDescriptor)->might_pool ?? 0
+                + optional($character->cypherFlavor)->might_pool ?? 0;
+            $character->speed_pool = optional($character->cypherFocus)->speed_pool
+                + optional($character->cypherType)->speed_pool ?? 0
+                + optional($character->cypherDescriptor)->speed_pool ?? 0
+                + optional($character->cypherFlavor)->speed_pool ?? 0;
+            $character->intellect_pool = optional($character->cypherFocus)->intellect_pool ?? 0
+                + optional($character->cypherType)->intellect_pool ?? 0
+                + optional($character->cypherDescriptor)->intellect_pool ?? 0
+                + optional($character->cypherFlavor)->intellect_pool ?? 0;
 
-            $character->might_edge = $character->cypherFocus->might_edge + $character->cypherType->might_edge + $character->cypherDescriptor->might_edge + $character->cypherFlavor->might_edge;
-            $character->speed_edge = $character->cypherFocus->speed_edge + $character->cypherType->speed_edge + $character->cypherDescriptor->speed_edge + $character->cypherFlavor->speed_edge;
-            $character->intellect_edge = $character->cypherFocus->intellect_edge + $character->cypherType->intellect_edge + $character->cypherDescriptor->intellect_edge + $character->cypherFlavor->intellect_edge;
+            $character->might_edge = optional($character->cypherFocus)->might_edge ?? 0
+                + optional($character->cypherType)->might_edge ?? 0
+                + optional($character->cypherDescriptor)->might_edge ?? 0
+                + optional($character->cypherFlavor)->might_edge ?? 0;
+            $character->speed_edge = optional($character->cypherFocus)->speed_edge ?? 0
+                + optional($character->cypherType)->speed_edge ?? 0
+                + optional($character->cypherDescriptor)->speed_edge ?? 0
+                + optional($character->cypherFlavor)->speed_edge ?? 0;
+            $character->intellect_edge = optional($character->cypherFocus)->intellect_edge ?? 0
+                + optional($character->cypherType)->intellect_edge ?? 0
+                + optional($character->cypherDescriptor)->intellect_edge ?? 0
+                + optional($character->cypherFlavor)->intellect_edge ?? 0;
 
-            $skills = array_merge($character->cypherFocus->skills, $character->cypherType->skills, $character->cypherDescriptor->skills);
+            $skills = array_merge($character->cypherFocus->skills ?? [], $character->cypherType->skills ?? [], $character->cypherDescriptor->skills ?? []);
             $character->skills()->delete();
 
             foreach ($skills as $skill) {
@@ -129,7 +147,7 @@ class CharacterController extends Controller
                 ]);
             }
 
-            $equipment = array_merge($character->cypherFocus->equipment, $character->cypherType->equipment, $character->cypherDescriptor->equipment);
+            $equipment = array_merge($character->cypherFocus->equipment ?? [], $character->cypherType->equipment ?? [], $character->cypherDescriptor->equipment ?? []);
             $character->equipment()->delete();
 
             foreach ($equipment as $item) {
@@ -138,14 +156,15 @@ class CharacterController extends Controller
                 ]);
             }
 
-            $specialAbilities = $character->cypherFocus->abilities
-                ->merge($character->cypherType->abilities)
-                ->merge($character->cypherDescriptor->abilities)
-                ->merge($character->cypherFlavor->abilities);
+
+            $specialAbilities = collect()
+                ->merge(optional($character->cypherFocus)->abilities)
+                ->merge(optional($character->cypherType)->abilities)
+                ->merge(optional($character->cypherDescriptor)->abilities)
+                ->merge(optional($character->cypherFlavor)->abilities);
             $character->specialAbilities()->delete();
 
             foreach ($specialAbilities as $ability) {
-                ray($ability);
                 $character->specialAbilities()->create([
                     'cypher_ability_id' => $ability->id,
                     'name' => $ability->name,

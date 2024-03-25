@@ -4,6 +4,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\CypherAbility;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CypherAbilitiesTableSeeder extends Seeder
 {
@@ -616,10 +617,7 @@ class CypherAbilitiesTableSeeder extends Seeder
     When you use Beast Form, your beast form grows
     bigger than before, during which time you achieve a height of 12 feet
     (4 m).
-    '],
-            [
-                'name' => 'Being so large, your beast form gains the following additional bonuses:',
-                'description' => '
+    Being so large, your beast form gains the following additional bonuses:
     +1 to Armor, +5 to your Might Pool, and you are trained in
     using your fists as heavy weapons (if you weren’t already). However,
     your Speed defense tasks are hindered. While bigger, you also gain an
@@ -2803,10 +2801,7 @@ class CypherAbilitiesTableSeeder extends Seeder
                 'name' => 'Enhanced Beast Form:',
                 'description' => '
     When you use Beast Form, your beast form gains the
-    '],
-            [
-                'name' => 'following additional bonuses:',
-                'description' => '
+    following additional bonuses:
     +3 to your Might Pool, +2 to your Speed
     Pool, and +2 to Armor. Enabler.'
             ],
@@ -4021,10 +4016,7 @@ class CypherAbilitiesTableSeeder extends Seeder
                 'name' => 'Greater Beast Form:',
                 'description' => '
     When using Beast Form, your beast form gains the
-    '],
-            [
-                'name' => 'following additional bonuses:',
-                'description' => '
+   following additional bonuses:
     +1 to your Might Edge, +2 to your Speed
     Pool, and +1 to your Speed Edge. Enabler.'
             ],
@@ -5683,11 +5675,7 @@ class CypherAbilitiesTableSeeder extends Seeder
             [
                 'name' => 'Mastery With Attacks:',
                 'description' => '
-    Choose one type of attack in which you are
-    '],
-            [
-                'name' => 'trained:',
-                'description' => '
+    Choose one type of attack in which you are trained:
     light bashing, light bladed, light ranged, medium bashing,
     medium bladed, medium ranged, heavy bashing, heavy bladed, or heavy
     ranged. You are specialized in attacks using that type of weapon.
@@ -5698,10 +5686,7 @@ class CypherAbilitiesTableSeeder extends Seeder
                 'name' => 'Mastery With Defense:',
                 'description' => '
     Choose one type of defense task in which you are
-    '],
-            [
-                'name' => 'trained:',
-                'description' => '
+    trained:
     Might, Speed, or Intellect. You are specialized in defense
     tasks of that type. You can select this ability up to three times. Each
     time you select it, you must choose a different type of defense task.
@@ -8105,10 +8090,7 @@ class CypherAbilitiesTableSeeder extends Seeder
                 'name' => 'Skill With Attacks:',
                 'description' => '
     Choose one type of attack in which you are not
-    '],
-            [
-                'name' => 'already trained:',
-                'description' => '
+    already trained:
     light bashing, light bladed, light ranged, medium
     bashing, medium bladed, medium ranged, heavy bashing, heavy bladed, or
     heavy ranged. You are trained in attacks using that type of weapon. You
@@ -8119,10 +8101,7 @@ class CypherAbilitiesTableSeeder extends Seeder
                 'name' => 'Skill With Defense:',
                 'description' => '
     Choose one type of defense task in which you are not
-    '],
-            [
-                'name' => 'already trained:',
-                'description' => '
+    already trained:
     Might, Speed, or Intellect. You are trained in defense
     tasks of that type. Enabler.'
             ],
@@ -9981,6 +9960,8 @@ class CypherAbilitiesTableSeeder extends Seeder
             ];
 
         foreach ($abilities as $ability) {
+//            // remove the (.*) from the name and the :
+            $ability['slug'] = Str::slug(str_replace(['(.*)', ':'], '', $ability['name']));
             CypherAbility::create($ability);
         }
     }

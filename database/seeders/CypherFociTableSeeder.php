@@ -3579,7 +3579,8 @@ GM Intrusions:
             }
 
             if (isset($focus["selected_abilities"])) {
-                $selectedAbilities = CypherAbility::whereRaw("name LIKE ANY (array['%".implode("%', '%", $focus["selected_abilities"])."%'])")->get();
+                $focusSelectedAbilitiesSlugs = array_map(fn($ability) => Str::slug($ability), $focus["selected_abilities"]);
+                $selectedAbilities = CypherAbility::whereIn('slug',$focusSelectedAbilitiesSlugs)->get();
                 foreach ($selectedAbilities as $ability) {
                     $cypherFocus->abilities()->attach($ability->id, ['selected' => true]);
                 }
