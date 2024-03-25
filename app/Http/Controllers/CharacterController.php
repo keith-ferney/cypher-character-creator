@@ -20,22 +20,28 @@ class CharacterController extends Controller
 {
     public function index(): Response
     {
+        $user = auth()->user();
         return Inertia::render('Characters/Index', [
-            'characters' => Character::with([
-                'cypherDescriptor',
-                'cypherType',
-                'cypherFocus',
-                'cypherFlavor',
-            ])->get(),
+            'characters' => Character::where('user_id', $user->id)
+                ->with([
+                    'cypherDescriptor',
+                    'cypherType',
+                    'cypherFocus',
+                    'cypherFlavor',
+                ])
+                ->get(),
         ]);
     }
 
     public function create(): RedirectResponse
     {
+        $user = auth()->user();
+
         // create a new character, then redirect to the edit page
         $character = new Character();
         $character->fill([
             'name' => '',
+            'user_id' => $user->id,
         ]);
         $character->save();
 
@@ -56,6 +62,8 @@ class CharacterController extends Controller
 
     public function edit($id)
     {
+        $user = auth()->user();
+
         $character = Character::with(array(
             'cypherDescriptor' => fn($query) => $query->orderBy('id'),
             'cypherType' => fn($query) => $query->orderBy('id'),
@@ -67,10 +75,9 @@ class CharacterController extends Controller
             'equipment' => fn($query) => $query->orderBy('id'),
             'attacks' => fn($query) => $query->orderBy('id'),
             'powerShifts' => fn($query) => $query->orderBy('id')->with('cypherPowerShift'),
-//            'cypherAdvancements',
-//            'cypherAbilities',
         ))
-            ->find($id);
+            ->where('user_id', $user->id)
+            ->findOrFail($id);
 
         $cypherDescriptors = CypherDescriptor::all();
         $cypherTypes = CypherType::all();
@@ -95,6 +102,13 @@ class CharacterController extends Controller
 
     public function update(Request $request, Character $character): JsonResponse
     {
+        if ($character->user_id !== auth()->user()->id) {
+            return \response()->json([
+                'message' => 'Unauthorized',
+                'status' => 'error',
+            ], 401);
+        }
+
         $character->fill($request->all());
         // if the cypher_focus_id, cypher_type_id, cypher_descriptor_id, or cypher_flavor_id are dirty, then we need to update the might_pool, speed_pool, and intellect_pool
         if ($character->isDirty(['cypher_focus_id', 'cypher_type_id', 'cypher_descriptor_id', 'cypher_flavor_id'])) {
