@@ -3588,7 +3588,8 @@ GM Intrusions:
             }
             if (isset($focus["abilities"])) {
 
-                $abilities = CypherAbility::whereRaw("name LIKE ANY (array['%".implode("%', '%", $focus["abilities"])."%'])")->get();
+                $focusAbilitiesSlugs = array_map(fn($ability) => Str::slug($ability), $focus['abilities']);
+                $abilities = CypherAbility::whereIn('slug',$focusAbilitiesSlugs)->get();
                 if ($abilities->isNotEmpty()) {
                     $cypherFocus->abilities()->syncWithoutDetaching($abilities->pluck('id')->toArray());
                 }

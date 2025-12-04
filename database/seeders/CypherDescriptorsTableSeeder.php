@@ -7,6 +7,7 @@ use App\Models\CypherDescriptor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\CypherAbility;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CypherDescriptorsTableSeeder extends Seeder
 {
@@ -2828,7 +2829,8 @@ Inner Light:
             }
 
             if (isset($descriptor['selected_abilities'])) {
-                $selectedAbilities = CypherAbility::whereRaw("name LIKE ANY (array['%" . implode("%', '%", $descriptor['selected_abilities']) . "%'])")->get();
+                $descriptorSelectedAbilitiesSlugs = array_map(fn($ability) => Str::slug($ability), $descriptor["selected_abilities"]);
+                $selectedAbilities = CypherAbility::whereIn('slug',$descriptorSelectedAbilitiesSlugs)->get();
                 foreach ($selectedAbilities as $ability) {
                     $cypherDescriptor->abilities()->attach($ability->id, ['selected' => true]);
                 }
@@ -2836,7 +2838,8 @@ Inner Light:
             }
             if (isset($descriptor['abilities'])) {
 
-                $abilities = CypherAbility::whereRaw("name LIKE ANY (array['%" . implode("%', '%", $descriptor['abilities']) . "%'])")->get();
+                $descriptorAbilitiesSlugs = array_map(fn($ability) => Str::slug($ability), $descriptor['abilities']);
+                $abilities = CypherAbility::whereIn('slug',$descriptorAbilitiesSlugs)->get();
                 if ($abilities->isNotEmpty()) {
                     $cypherDescriptor->abilities()->syncWithoutDetaching($abilities->pluck('id')->toArray());
                 }

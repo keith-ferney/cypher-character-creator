@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\CypherAbility;
 use App\Models\CypherFlavor;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CypherFlavorsTableSeeder extends Seeder
 {
@@ -382,7 +383,8 @@ Skill With Defense'
             $cypherFlavor = CypherFlavor::create($flavor);
 
             if ($abilities) {
-                $abilities = CypherAbility::whereRaw("name LIKE ANY (array['%".implode("%', '%", $abilities)."%'])")->get();
+                $flavorAbilitiesSlugs = array_map(fn($ability) => Str::slug($ability), $flavor['abilities']);
+                $abilities = CypherAbility::whereIn('slug',$flavorAbilitiesSlugs)->get();
                 if ($abilities->isNotEmpty()) {
                     $cypherFlavor->abilities()->syncWithoutDetaching($abilities->pluck('id')->toArray());
                 }
